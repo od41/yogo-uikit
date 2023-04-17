@@ -1,8 +1,10 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
+// color mode
+
+// colors
 // layout
 // typography
-// colors
 // buttons
 // input fields
 // cards
@@ -16,5 +18,12 @@ import { extendTheme } from "@chakra-ui/react";
 // settings page
 // 404 page
 
+const config: ThemeConfig = {
+    initialColorMode: 'light',
+    useSystemColorMode: true,
+}
 
-export const theme = extendTheme({})
+
+export const theme = extendTheme({
+    config,
+})

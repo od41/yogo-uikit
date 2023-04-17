@@ -26,10 +26,13 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  Button
+  Button,
+  useColorMode
 } from "@chakra-ui/react";
 
 import { FiMenu, FiHexagon, FiPlus, FiChevronDown } from "react-icons/fi";
+
+import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon } from "@rootcomponents/base/Icons";
 
 import { useRouter } from "next/router";
 
@@ -41,6 +44,7 @@ export interface NavbarProps {
 export function Navbar({ title, username }: NavbarProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+  const { colorMode, toggleColorMode } = useColorMode()
 
   const handleLogout = () => {};
   return (
@@ -139,59 +143,69 @@ export function Navbar({ title, username }: NavbarProps) {
           )}
         </Box>
 
-        <Flex gap={6} alignItems="center" width="auto">
-          <Menu>
-            <MenuButton
-              aria-label="Perform actions menu"
-              fontWeight="semibold"
-              rounded="full"
-              transition="transform 0.15s ease-out, background 0.15s ease-out"
-              fontSize="15px"
-              px={5}
-              py={2}
-              // variations
-              border={title ? "1px solid #F2F2F2" : "none"}
-              color={title ? "gray.300" : "white"}
-              bg={title ? "transparent" : "primary.300"}
-              _hover={{
-                bg: title ? "gray.25" : "primary.400",
-                textDecoration: "none",
-                cursor: "pointer",
-              }}
-            >
-              <span>Quick Actions</span>
-              <FiChevronDown />
-            </MenuButton>
-              <MenuList>
-                <MenuItem onClick={() => router.push("AddDriverPage")}>
-                  Add Driver
-                </MenuItem>
-                <MenuItem onClick={() => router.push("AddTruckPage")}>
-                  Add Truck
-                </MenuItem>
-                <MenuItem onClick={() => router.push("AddTripPage")}>
-                  Add Trip
-                </MenuItem>
-              </MenuList>
-          </Menu>
+        <Flex gap={1} alignItems="center" width="auto">
+          <IconButton
+            aria-label="Switch Color Mode"
+            icon={<ColorModeIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+            onClick={toggleColorMode}
+          />
 
-          {/* <IconButton
-              aria-label="Notifications"
-              icon={<NotificationButtonIcon />}
-              h='40px'
-              w='40px'
-              rounded='full'
-              transition='transform 0.15s ease-out, background 0.15s ease-out'
-              border='1px solid #f2f2f2'
-              color='black'
-              bg='white'
-              _hover={{
-                bg: "gray.50",
-                cursor: "pointer",
-              }}
-            /> */}
+          <IconButton
+            aria-label="Show history"
+            icon={<HistoryIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+          />
 
-          <Menu>
+          <IconButton
+            aria-label="Show notifications"
+            icon={<BellIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+          />
+
+          <IconButton
+            aria-label="Show sidebar"
+            icon={<SidebarIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+          />
+
+          {/* <Menu>
             <MenuButton
               aria-label="User profile menu"
               as={IconButton}
@@ -221,7 +235,7 @@ export function Navbar({ title, username }: NavbarProps) {
               <MenuDivider />
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </MenuList>
-          </Menu>
+          </Menu> */}
         </Flex>
       </Flex>
     </Flex>
