@@ -1,4 +1,6 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { inputTheme } from './input'
+import { breadcrumbTheme } from './breadcrumb'
 
 // color mode
 
@@ -26,4 +28,8 @@ const config: ThemeConfig = {
 
 export const theme = extendTheme({
     config,
+    components: { 
+        Input: inputTheme,
+        Breadcrumb: breadcrumbTheme
+     },
 })

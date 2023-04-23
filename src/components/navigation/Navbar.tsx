@@ -16,6 +16,9 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
   Heading,
   VStack,
   List,
@@ -30,9 +33,11 @@ import {
   useColorMode
 } from "@chakra-ui/react";
 
+import { Search } from "@root/components/inputs/Search";
+
 import { FiMenu, FiHexagon, FiPlus, FiChevronDown } from "react-icons/fi";
 
-import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon } from "@rootcomponents/base/Icons";
+import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@root/components/base/Icons";
 
 import { useRouter } from "next/router";
 
@@ -49,101 +54,75 @@ export function Navbar({ title, username }: NavbarProps) {
   const handleLogout = () => {};
   return (
     <Flex
-      h={100}
       zIndex="sticky"
       top={0}
       left={0}
       bgColor="white"
-      borderBottom="1px solid #e0e0e0"
+      borderBottom="1px solid #e5e5e5"
       justifyContent="space-between"
       alignItems="center"
-      px={12}
-      pl={0}
+      px={6}
+      py={4}
       position="sticky"
     >
-      <Flex h={100} alignItems="center" width="auto" mr="89px">
-        <IconButton
-          aria-label="Switch contracts"
-          onClick={onOpen}
-          icon={<FiMenu />}
-          h="100%"
-          w="100px"
-          rounded="none"
-          color="black"
-          borderRadius={0}
-          _hover={{ bgColor: "gray.25" }}
-        />
-        {/* start Switch contract drawer */}
-        <Drawer isOpen={isOpen} onClose={onClose} placement="left" size="sm">
-          <DrawerOverlay />
-          <DrawerContent px={4}>
-            <DrawerCloseButton />
-            <DrawerHeader></DrawerHeader>
-
-            <DrawerBody>
-              <VStack alignItems="flex-start" gap={6}>
-                <HStack justify="space-between" w="100%" mt={24}>
-                  <Heading variant="cardTitle" fontSize="18px">
-                    Contracts
-                  </Heading>
-                  <Button
-                    onClick={() => null}
-                    variant="primary"
-                    size="sm"
-                    rightIcon={<FiPlus />}
-                    w="164px"
-                  >
-                    New Contract
-                  </Button>
-                </HStack>
-
-                {/* <Search
-                  placeholder="Search by client’s name"
-                  onChange={(e) => {
-                    filterChange(e.target.value);
-                  }}
-                  w="100%"
-                /> */}
-              </VStack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-
-        {/* end drawer */}
-
-        <ChakraLink href="/">
-          <FiHexagon
-            // ml="25px"
-            width="105px"
-            height="33px"
-            // alt="TFleet logo"
-          />
-        </ChakraLink>
-      </Flex>
 
       <Flex
         flex="1"
         justifyContent="space-between"
         alignItems="center"
-        ml="24px"
       >
-        <Box width="auto">
-          {title ? ( // display page title
-            <Text as="span" fontSize="20px" fontWeight="semibold" color="black">
-              {title}
-            </Text>
-          ) : (
-            /* // disiplay user name */
-            <Text as="span" fontSize="20px" color="gray.300">
-              Hello,{" "}
-              <Text as="span" fontWeight="semibold" color="black">
-                "John Doe"
-              </Text>
-            </Text>
-          )}
-        </Box>
+        <HStack width="auto" spacing={4}>
+          <IconButton
+            aria-label="Show sidebar"
+            icon={<SidebarIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+          />
+          
+          <IconButton
+            aria-label="Favourite"
+            icon={<StarIcon />}
+            h="40px"
+            w="40px"
+            rounded="full"
+            transition="transform 0.15s ease-out, background 0.15s ease-out"
+            color="black"
+            bg="white"
+            _hover={{
+              bg: "gray.50",
+              cursor: "pointer",
+            }}
+          />
+
+          <HStack spacing={4} alignItems="center">
+            <Breadcrumb separator="/">
+              <BreadcrumbItem>
+                <BreadcrumbLink href='#'>
+                  Dashboard
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+
+              <BreadcrumbItem isCurrentPage>
+                <BreadcrumbLink href='#'>
+                  Default
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+          </HStack>
+
+        </HStack>
 
         <Flex gap={1} alignItems="center" width="auto">
+          <Search />
+
           <IconButton
             aria-label="Switch Color Mode"
             icon={<ColorModeIcon />}
