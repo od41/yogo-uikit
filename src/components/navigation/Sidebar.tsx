@@ -41,7 +41,7 @@ export const Sidebar = (props: any) => {
   return (
     <Flex
       bgColor="nav.base"
-      minH="calc(100vh - 100px)"
+      minH="100vh"
       flexDir="column"
       top={0}
       left={0}
@@ -52,7 +52,7 @@ export const Sidebar = (props: any) => {
       <Flex
         px="24px"
         width="100%"
-        height={100}
+        height="73px"
         borderRadius="md"
         mb={4}
         color="black"
@@ -66,10 +66,10 @@ export const Sidebar = (props: any) => {
             bgColor="nav.highlight"
             color="gray.25"
             size="sm"
-            mr={4}
+            mr={2}
           />
           <Box>
-            <Text fontSize={15} color="black" fontWeight="semibold">
+            <Text fontSize="sm" color="#1c1c1c" fontWeight="semibold">
               John Wick
             </Text>
           </Box>
@@ -77,6 +77,9 @@ export const Sidebar = (props: any) => {
       </Flex>
 
       <VStack gap={0} alignItems="flex-start">
+        <Text fontSize="sm" color="#999999" pl={6} mb={2} >
+          Pages
+        </Text>
         <Accordion w="100%" allowMultiple>
           {sidebarMenu.map((menuItem, index) => (
             <VStack key={`menu-item-${index}`} gap={0} spacing={0} w="100%">
@@ -92,8 +95,9 @@ export const Sidebar = (props: any) => {
                           bgColor: "nav.highlight",
                         }}
                         w="100%"
-                        py={2}
+                        py={1}
                         color="black"
+                        position="relative"
                         border="none"
                         fontWeight="normal"
                         rounded="md"
@@ -107,16 +111,20 @@ export const Sidebar = (props: any) => {
                         }
                       >
                         <Flex alignItems="center" fontSize="sm">
+                          {isPathActive(menuItem.link, true) && (
+                            <Box
+                              bg="#1c1c1c"
+                              width={1}
+                              height="4"
+                              rounded="full"
+                              position="absolute"
+                              left={0}
+                            />
+                          )}
                           {isExpanded ? (
-                            <ChevronDownIcon
-                              boxSize={5}
-                              color="#CCCCCC"
-                            />
+                            <ChevronDownIcon boxSize={5} color="#CCCCCC" />
                           ) : (
-                            <ChevronRightIcon
-                            boxSize={5}
-                              color="#CCCCCC"
-                            />
+                            <ChevronRightIcon boxSize={5} color="#CCCCCC" />
                           )}
                           <Icon
                             as={menuItem.icon}
@@ -142,12 +150,13 @@ export const Sidebar = (props: any) => {
                             display="flex"
                             alignItems="center"
                             _hover={{
-                              bgColor: "nav.highlight",
+                              bgColor: "#f2f2f2",
                             }}
                             w="100%"
-                            py={5}
+                            py={2}
                             px="24px"
                             marginTop="0"
+                            position="relative"
                             color={
                               isPathActive(submenuItem.link, false) // not a parent
                                 ? "black"
@@ -164,6 +173,16 @@ export const Sidebar = (props: any) => {
                                 : ""
                             }
                           >
+                            {isPathActive(submenuItem.link, false) && (
+                              <Box
+                                bg="#1c1c1c"
+                                width={1}
+                                height="4"
+                                rounded="full"
+                                position="absolute"
+                                left={0}
+                              />
+                            )}
                             <Flex alignItems="center">
                               <Text ml={12} fontSize="14px">
                                 {submenuItem.name}

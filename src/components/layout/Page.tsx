@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, FC } from "react";
-import { Box, Grid, GridItem, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, useBreakpointValue, VStack } from "@chakra-ui/react";
 import Head from 'next/head'
 
 import { Navbar } from "@root/components/navigation/Navbar";
@@ -38,7 +38,6 @@ export const Page = ({children}: PageProps) => {
         {!isMobile && (
           <GridItem>
             <Sidebar />
-
           </GridItem>
         )}
 
@@ -48,7 +47,12 @@ export const Page = ({children}: PageProps) => {
           overflowX="hidden"
         >
           {isMobile ? <MobileNavbar /> : <Navbar />}
-          {children}
+          <Flex
+            p={7}
+            w="100%"
+          >
+            {children}
+          </Flex>
         </GridItem>
       </Grid>
     </>
