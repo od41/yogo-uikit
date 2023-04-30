@@ -44,7 +44,8 @@ export const Page = ({children}: PageProps) => {
         <GridItem
           minHeight="100vh"
           w="100%"
-          overflowX="hidden"
+          overflow="visible"
+          // overflowX="hidden"
         >
           {isMobile ? <MobileNavbar /> : <Navbar />}
           <Flex

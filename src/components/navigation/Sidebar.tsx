@@ -40,7 +40,6 @@ export const Sidebar = (props: any) => {
 
   return (
     <Flex
-      bgColor="nav.base"
       minH="100vh"
       flexDir="column"
       top={0}
