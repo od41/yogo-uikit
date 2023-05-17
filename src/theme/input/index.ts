@@ -4,41 +4,81 @@ import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(inputAnatomy.keys)
 
-  const filled2 = definePartsStyle({
+  const filled = definePartsStyle({
     field: {
-      background: '#F2F2F2',
-      borderRadius: 'lg',
-      pl: "2",
+      color: 'gray.80',
+      background: 'gray.5',
+      pl: 2,
 
       _placeholder: {
-        color: "#C2C2C2"
+        color: "gray.20"
       },
       
       _dark: {
-        background: 'gray.800',
+        background: 'gray.l10',
+        color: 'gray.l80',
+
+        _placeholder: {
+          color: "gray.l40"
+        },
       },
     },
     addon: {
-      background: '#F2F2F2',
+      background: 'gray.5',
       borderRadius: 'lg',
-      color: '#F2F2F2',
-      px: "2",
+      color: 'gray.l20',
+      px: 2,
   
       _dark: {
-        background: 'gray.800',
-        color: 'white',
+        background: 'gray.l10',
+        color: 'gray.l40',
       },
     },
   })
 
 const baseStyle = definePartsStyle({
   field: {
+    bg: 'gray.5',
+    color: 'red',
+    borderRadius: 'lg',
+    px: 2,
+
+    _placeholder: {
+      color: "gray.20"
+    },
     
+    _dark: {
+      bg: 'gray.l5',
+    },
+  },
+  addon: {
+    bg: 'yellow',
+    borderRadius: 'lg',
+    color: 'gray.5',
+    px: 2,
+
+    _dark: {
+      bg: 'gray.l5',
+      color: 'white',
+    },
+  },
+  element: {
+    bg: 'yellow',
+    borderRadius: 'lg',
+    color: 'gray.5',
+    px: 2,
+
+    _dark: {
+      bg: 'gray.l5',
+      color: 'white',
+    },
   },
 });
 
 export const inputTheme = defineMultiStyleConfig({
-  defaultProps: { size: "sm", },
-  variants: { filled: filled2 },
   baseStyle,
+  defaultProps: { size: "sm", },
+  variants: { 
+    filled: filled
+  },
 });

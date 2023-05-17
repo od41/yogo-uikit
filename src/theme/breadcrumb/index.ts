@@ -8,23 +8,35 @@ const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
 
 const baseStyleLink = defineStyle({
-  px: "2",
-  py: "1",
-  color: "#949597",
+  px: 2,
+  py: 1,
+  color: "black.40",
   rounded: "md",
 
   _activeLink: {
-    color: "#1C1C1C"
+    color: "gray.100",
   },
-  
+
   _hover: {
     textDecoration: "none",
-    bg: "#f2f2f2",
+    bg: "gray.5",
   },
-})
+
+  _dark: {
+    color: "white.l40",
+
+    _activeLink: {
+      color: "white.100",
+    },
+
+    _hover: {
+      bg: "gray.l5",
+    },
+  },
+});
 
 const baseStyleSeparator = defineStyle({
-  color: "#949597",
+  color: "black.40",
 })
 
 const baseStyle = definePartsStyle({

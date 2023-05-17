@@ -34,7 +34,14 @@ export const Page = ({children}: PageProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Grid templateColumns={{ base: "1", md: "230px 1fr" }}>
+      <Grid 
+        templateColumns={{ base: "1", md: "230px 1fr" }}
+        _dark={{
+          bg: "black.100",
+          color: "gray.l80",
+          borderColor: "gray.80"
+        }}
+      >
         {!isMobile && (
           <GridItem>
             <Sidebar />

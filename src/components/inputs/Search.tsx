@@ -10,7 +10,7 @@ import { SearchIcon, ShortcutIcon } from "@rootcomponents/base/Icons";
 export const Search = () => {
   return (
     <>
-      <InputGroup size="sm" variant='filled'>
+      <InputGroup variant="filled">
         <InputLeftAddon children={<SearchIcon/>} />
         <Input placeholder="Search" />
         <InputRightAddon children={<ShortcutIcon />} />

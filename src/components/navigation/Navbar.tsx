@@ -30,7 +30,8 @@ import {
   MenuItem,
   MenuDivider,
   Button,
-  useColorMode
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { Search } from "@root/components/inputs/Search";
@@ -57,9 +58,9 @@ export function Navbar({ title, username }: NavbarProps) {
       zIndex="sticky"
       top={0}
       left={0}
-      bgColor="white"
+      bgColor={useColorModeValue("white.100", "black.100")}
       borderBottom="1px solid"
-      borderColor="gray.10"
+      borderColor={useColorModeValue("gray.10", "gray.80")}
       justifyContent="space-between"
       alignItems="center"
       px={6}
@@ -75,32 +76,14 @@ export function Navbar({ title, username }: NavbarProps) {
         <HStack width="auto" spacing={4}>
           <IconButton
             aria-label="Show sidebar"
-            icon={<SidebarIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
+            icon={<SidebarIcon />}          
           />
           
           <IconButton
             aria-label="Favourite"
             icon={<StarIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
           />
 
           <HStack spacing={4} alignItems="center">
@@ -127,62 +110,26 @@ export function Navbar({ title, username }: NavbarProps) {
           <IconButton
             aria-label="Switch Color Mode"
             icon={<ColorModeIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
             onClick={toggleColorMode}
           />
 
           <IconButton
             aria-label="Show history"
             icon={<HistoryIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
           />
 
           <IconButton
             aria-label="Show notifications"
             icon={<BellIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
           />
 
           <IconButton
             aria-label="Show sidebar"
             icon={<SidebarIcon />}
-            h="40px"
-            w="40px"
-            rounded="full"
-            transition="transform 0.15s ease-out, background 0.15s ease-out"
-            color="black"
-            bg="white"
-            _hover={{
-              bg: "gray.50",
-              cursor: "pointer",
-            }}
+            variant="baseIconButton"
           />
 
           {/* <Menu>
