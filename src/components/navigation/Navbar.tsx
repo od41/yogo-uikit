@@ -58,7 +58,8 @@ export function Navbar({ title, username }: NavbarProps) {
       top={0}
       left={0}
       bgColor="white"
-      borderBottom="1px solid #e5e5e5"
+      borderBottom="1px solid"
+      borderColor="gray.10"
       justifyContent="space-between"
       alignItems="center"
       px={6}

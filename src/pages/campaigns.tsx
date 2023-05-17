@@ -34,7 +34,7 @@ import {
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Campaigns() {
   const data = [
     {
       "name": "Mon",

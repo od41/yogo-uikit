@@ -18,6 +18,7 @@ import {
   AccordionButton,
   AccordionPanel,
   useAccordion,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 
@@ -46,7 +47,7 @@ export const Sidebar = (props: any) => {
       left={0}
       position="sticky"
       borderRight="1px"
-      borderColor="#e5e5e5"
+      borderColor={useColorModeValue("gray.10", "gray.80")}
     >
       <Flex
         px="24px"
@@ -54,7 +55,7 @@ export const Sidebar = (props: any) => {
         height="73px"
         borderRadius="md"
         mb={4}
-        color="black"
+        color="black.100"
         fontSize="14px"
         justifyContent="space-between"
         alignItems="center"
@@ -63,12 +64,12 @@ export const Sidebar = (props: any) => {
           <Avatar
             name="Coca Cola Ltd"
             bgColor="nav.highlight"
-            color="gray.25"
+            color={useColorModeValue("black.100", "gray.l80")}
             size="sm"
             mr={2}
           />
           <Box>
-            <Text fontSize="sm" color="#1c1c1c" fontWeight="semibold">
+            <Text textStyle="base">
               John Wick
             </Text>
           </Box>
@@ -76,7 +77,7 @@ export const Sidebar = (props: any) => {
       </Flex>
 
       <VStack gap={0} alignItems="flex-start">
-        <Text fontSize="sm" color="#999999" pl={6} mb={2} >
+        <Text textStyle="small" pl={6} mb={2} >
           Pages
         </Text>
         <Accordion w="100%" allowMultiple>
@@ -91,11 +92,11 @@ export const Sidebar = (props: any) => {
                         alignItems="center"
                         justifyContent="space-between"
                         _hover={{
-                          bgColor: "nav.highlight",
+                          bgColor: useColorModeValue("gray.5", "gray.l10"),
                         }}
                         w="100%"
                         py={1}
-                        color="black"
+                        color="black.100"
                         position="relative"
                         border="none"
                         fontWeight="normal"
@@ -105,14 +106,14 @@ export const Sidebar = (props: any) => {
                             menuItem.link,
                             menuItem.submenu != undefined
                           )
-                            ? "#f2f2f2"
+                            ? useColorModeValue("gray.5", "gray.l5")
                             : "transparent"
                         }
                       >
                         <Flex alignItems="center" fontSize="sm">
                           {isPathActive(menuItem.link, true) && (
                             <Box
-                              bg="#1c1c1c"
+                              bg={useColorModeValue("brand.primary.alpha", "brand.secondary.beta")}
                               width={1}
                               height="4"
                               rounded="full"
@@ -121,9 +122,9 @@ export const Sidebar = (props: any) => {
                             />
                           )}
                           {isExpanded ? (
-                            <ChevronDownIcon boxSize={5} color="#CCCCCC" />
+                            <ChevronDownIcon boxSize={5} color={useColorModeValue("gray.20", "gray.l20")} />
                           ) : (
-                            <ChevronRightIcon boxSize={5} color="#CCCCCC" />
+                            <ChevronRightIcon boxSize={5} color={useColorModeValue("gray.20", "gray.l20")} />
                           )}
                           <Icon
                             as={menuItem.icon}
@@ -134,11 +135,13 @@ export const Sidebar = (props: any) => {
                                 menuItem.link,
                                 menuItem.submenu != undefined
                               )
-                                ? "iconGray.200"
-                                : "iconGray.100"
+                                ? useColorModeValue("brand.primary.alpha", "white.100")
+                                : useColorModeValue("brand.primary.alpha", "white.100")
                             }
                           />
-                          {menuItem.name}
+                          <Text textStyle="base">
+                            {menuItem.name}
+                          </Text>
                         </Flex>
                       </AccordionButton>
                       <AccordionPanel color="black" p="0" w="100%">
@@ -149,18 +152,15 @@ export const Sidebar = (props: any) => {
                             display="flex"
                             alignItems="center"
                             _hover={{
-                              bgColor: "#f2f2f2",
+                              cursor: "pointer",
+                              bgColor: useColorModeValue("gray.5", "gray.80"),
                             }}
                             w="100%"
-                            py={2}
+                            py={1}
                             px="24px"
                             marginTop="0"
                             position="relative"
-                            color={
-                              isPathActive(submenuItem.link, false) // not a parent
-                                ? "black"
-                                : "black"
-                            }
+                            rounded="md"
                             fontWeight={
                               isPathActive(submenuItem.link, false) // not a parent
                                 ? "semibold"
@@ -168,13 +168,13 @@ export const Sidebar = (props: any) => {
                             }
                             bgColor={
                               isPathActive(submenuItem.link, false) // not a parent
-                                ? "nav.highlight"
-                                : ""
+                                ? useColorModeValue("gray.5", "gray.80")
+                                : "transparent"
                             }
                           >
                             {isPathActive(submenuItem.link, false) && (
                               <Box
-                                bg="#1c1c1c"
+                                bg={useColorModeValue("brand.primary.alpha", "brand.secondary.beta")}
                                 width={1}
                                 height="4"
                                 rounded="full"
@@ -183,7 +183,7 @@ export const Sidebar = (props: any) => {
                               />
                             )}
                             <Flex alignItems="center">
-                              <Text ml={12} fontSize="14px">
+                              <Text textStyle="base" ml={12}>
                                 {submenuItem.name}
                               </Text>
                             </Flex>
