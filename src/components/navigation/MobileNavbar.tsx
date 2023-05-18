@@ -147,7 +147,7 @@ export function MobileNavbar({  }: NavbarProps) {
             </Flex>
           </Flex>
         </Flex>
-        <Portal>{showSidebar && <MobileSidebar />}</Portal>
+        <Portal>{true && <MobileSidebar />}</Portal>
         <Drawer
           isOpen={isOpenNav}
           placement='right'

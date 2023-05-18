@@ -4,6 +4,7 @@ import Head from 'next/head'
 
 import { Navbar } from "@root/components/navigation/Navbar";
 import { Sidebar } from "@root/components/navigation/Sidebar";
+import { RightSidebar } from "@root/components/navigation/RightSidebar";
 import { MobileNavbar } from "@root/components/navigation/MobileNavbar";
 
 interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -35,7 +36,7 @@ export const Page = ({children}: PageProps) => {
       </Head>
 
       <Grid 
-        templateColumns={{ base: "1", md: "230px 1fr" }}
+        templateColumns={{ base: "1", md: "230px 1fr 230px" }}
         _dark={{
           bg: "black.100",
           color: "gray.l80",
@@ -62,6 +63,12 @@ export const Page = ({children}: PageProps) => {
             {children}
           </Flex>
         </GridItem>
+
+        {!isMobile && (
+          <GridItem>
+            <RightSidebar />
+          </GridItem>
+        )}
       </Grid>
     </>
   );

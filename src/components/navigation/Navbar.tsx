@@ -32,6 +32,8 @@ import {
   Button,
   useColorMode,
   useColorModeValue,
+  Portal,
+  
 } from "@chakra-ui/react";
 
 import { Search } from "@root/components/inputs/Search";
@@ -42,97 +44,102 @@ import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@ro
 
 import { useRouter } from "next/router";
 
+import {RightSidebar} from '@root/components/navigation/RightSidebar'
+
 export interface NavbarProps {
   title?: string;
   username?: string;
 }
 
 export function Navbar({ title, username }: NavbarProps) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode()
 
+  const {
+    isOpen: isOpenNav,
+    onOpen: onOpenNav,
+    onClose: onCloseNav,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOpenRightSidebar,
+    onOpen: onOpenRightSidebar,
+    onClose: onCloseRightSidebar,
+  } = useDisclosure();
+
   const handleLogout = () => {};
   return (
-    <Flex
-      zIndex="sticky"
-      top={0}
-      left={0}
-      bgColor={useColorModeValue("white.100", "black.100")}
-      borderBottom="1px solid"
-      borderColor={useColorModeValue("gray.10", "gray.80")}
-      justifyContent="space-between"
-      alignItems="center"
-      px={6}
-      py={4}
-      position="sticky"
-    >
-
+    <>
       <Flex
-        flex="1"
+        zIndex="sticky"
+        top={0}
+        left={0}
+        bgColor={useColorModeValue("white.100", "black.100")}
+        borderBottom="1px solid"
+        borderColor={useColorModeValue("gray.10", "gray.80")}
         justifyContent="space-between"
         alignItems="center"
+        px={6}
+        py={4}
+        position="sticky"
       >
-        <HStack width="auto" spacing={4}>
-          <IconButton
-            aria-label="Show sidebar"
-            variant="baseIconButton"
-            icon={<SidebarIcon />}          
-          />
-          
-          <IconButton
-            aria-label="Favourite"
-            icon={<StarIcon />}
-            variant="baseIconButton"
-          />
+        <Flex flex="1" justifyContent="space-between" alignItems="center">
+          <HStack width="auto" spacing={4}>
+            <IconButton
+              aria-label="Show sidebar"
+              variant="baseIconButton"
+              icon={<SidebarIcon />}
+            />
 
-          <HStack spacing={4} alignItems="center">
-            <Breadcrumb separator="/">
-              <BreadcrumbItem>
-                <BreadcrumbLink href='#'>
-                  Dashboard
-                </BreadcrumbLink>
-              </BreadcrumbItem>
+            <IconButton
+              aria-label="Favourite"
+              icon={<StarIcon />}
+              variant="baseIconButton"
+            />
 
-              <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href='#'>
-                  Default
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-            </Breadcrumb>
+            <HStack spacing={4} alignItems="center">
+              <Breadcrumb separator="/">
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem isCurrentPage>
+                  <BreadcrumbLink href="#">Default</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </HStack>
           </HStack>
 
-        </HStack>
+          <Flex gap={1} alignItems="center" width="auto">
+            <Search />
 
-        <Flex gap={1} alignItems="center" width="auto">
-          <Search />
+            <IconButton
+              aria-label="Switch Color Mode"
+              icon={<ColorModeIcon />}
+              variant="baseIconButton"
+              onClick={toggleColorMode}
+            />
 
-          <IconButton
-            aria-label="Switch Color Mode"
-            icon={<ColorModeIcon />}
-            variant="baseIconButton"
-            onClick={toggleColorMode}
-          />
+            <IconButton
+              aria-label="Show history"
+              icon={<HistoryIcon />}
+              variant="baseIconButton"
+            />
 
-          <IconButton
-            aria-label="Show history"
-            icon={<HistoryIcon />}
-            variant="baseIconButton"
-          />
+            <IconButton
+              aria-label="Show notifications"
+              icon={<BellIcon />}
+              variant="baseIconButton"
+            />
 
-          <IconButton
-            aria-label="Show notifications"
-            icon={<BellIcon />}
-            variant="baseIconButton"
-          />
+            <IconButton
+              aria-label="Show sidebar"
+              icon={<SidebarIcon />}
+              variant="baseIconButton"
+              onClick={onOpenRightSidebar}
+            />
 
-          <IconButton
-            aria-label="Show sidebar"
-            icon={<SidebarIcon />}
-            variant="baseIconButton"
-          />
-
-          {/* <Menu>
+            {/* <Menu>
             <MenuButton
               aria-label="User profile menu"
               as={IconButton}
@@ -163,8 +170,26 @@ export function Navbar({ title, username }: NavbarProps) {
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </MenuList>
           </Menu> */}
+          </Flex>
         </Flex>
       </Flex>
-    </Flex>
+      <Portal>
+        {/* Right sidebar - currently notification & activity */}
+        <Drawer
+          isOpen={isOpenRightSidebar}
+          placement='right'
+          onClose={onCloseRightSidebar}
+          // finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton zIndex='popover' color='white' mt='12px' />
+            <DrawerHeader>
+            <RightSidebar />
+            </DrawerHeader>
+          </DrawerContent>
+        </Drawer>
+      </Portal>
+    </>
   );
 }
