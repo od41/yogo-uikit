@@ -101,8 +101,8 @@ export default function Home() {
   return (
     <>
       <Page>
-        <VStack w="100%" spacing={6}>
-          <Select placeholder="Today" variant="unstyled">
+        <VStack w="100%" spacing={6} alignItems="flex-start">
+          <Select placeholder="Today" variant="unstyled" width="fit-content">
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
@@ -113,9 +113,9 @@ export default function Home() {
             templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
             w="100%"
           >
-            <Card variant="filled" bg="#E5ECF6">
+            <Card variant="highlights1" >
               <CardHeader>
-                <Heading size="md">Views</Heading>
+                <Heading size="md">Viewsdd</Heading>
               </CardHeader>
               <CardBody>
                 <Flex w="full" alignItems="center" justify="space-between">
@@ -125,7 +125,7 @@ export default function Home() {
               </CardBody>
             </Card>
 
-            <Card variant="filled" bg="#E3F5FF">
+            <Card variant="highlights2">
               <CardHeader>
                 <Heading size="md">Visits</Heading>
               </CardHeader>
@@ -137,7 +137,7 @@ export default function Home() {
               </CardBody>
             </Card>
 
-            <Card variant="filled" bg="#E5ECF6">
+            <Card variant="highlights1">
               <CardHeader>
                 <Heading size="md">New Users</Heading>
               </CardHeader>
@@ -149,7 +149,7 @@ export default function Home() {
               </CardBody>
             </Card>
 
-            <Card variant="filled" bg="#E3F5FF">
+            <Card variant="highlights2">
               <CardHeader>
                 <Heading size="md">Active Users</Heading>
               </CardHeader>
@@ -162,10 +162,10 @@ export default function Home() {
             </Card>
           </SimpleGrid>
 
-          <SimpleGrid spacing={6} templateColumns="1fr 320px" w="100%">
-            <Card variant="filled" bg={useColorModeValue('brand.light', 'white.5')}>
+          <SimpleGrid spacing={6} templateColumns={{sm: "auto-fit", md: "1fr 320px"}} w="100%">
+            <Card variant="filled" >
               <CardHeader>
-                <Select variant="unstyled">
+                <Select variant="unstyled" width="fit-content">
                   <option value="option1">Total Users</option>
                   <option value="option1">Total Projects</option>
                   <option value="option1">Operating Status</option>
@@ -203,7 +203,7 @@ export default function Home() {
               </CardBody>
             </Card>
 
-            <Card variant="filled" bg="#E3F5FF">
+            <Card variant="filled">
               <CardHeader>
                 <Heading size="md">Traffic by Website</Heading>
               </CardHeader>

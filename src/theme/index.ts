@@ -1,6 +1,7 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 import { inputTheme } from './input'
 import { breadcrumbTheme } from './breadcrumb'
+import { cardTheme } from './card'
 import { textStyles } from './typography'
 import { buttonTheme } from './button'
 
@@ -80,6 +81,7 @@ const components = {
     Input: inputTheme,
     Breadcrumb: breadcrumbTheme,
     Button: buttonTheme,
+    Card: cardTheme,
  }
 
 
