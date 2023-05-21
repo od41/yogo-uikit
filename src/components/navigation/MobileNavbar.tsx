@@ -18,11 +18,11 @@ import {
   useDisclosure,
   VStack,
   HStack,
-  List,
-  ListItem,
-  Heading,
-  Avatar,
-  Button
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  useColorModeValue,
+  useColorMode
 } from "@chakra-ui/react";
 
 import { FiMenu, FiPlus, FiClipboard } from "react-icons/fi";
@@ -30,9 +30,11 @@ import { FiMenu, FiPlus, FiClipboard } from "react-icons/fi";
 import { NavbarProps } from "@root/components/navigation/Navbar";
 import { MobileSidebar } from "@root/components/navigation/MobileSidebar";
 
+import { HistoryIcon, BellIcon, ColorModeIcon } from "@root/components/base/Icons";
+
 export function MobileNavbar({  }: NavbarProps) {
-  
-  const [showSidebar, setShowSidebar] = React.useState<boolean>(false);
+  const { colorMode, toggleColorMode } = useColorMode()
+
   const {
     isOpen: isOpenNav,
     onOpen: onOpenNav,
@@ -50,99 +52,64 @@ export function MobileNavbar({  }: NavbarProps) {
       <>
         <Flex
           h={16}
-          zIndex='banner'
-          w='100%'
+          zIndex="banner"
+          w="100%"
           top={0}
           left={0}
-          bgColor='white'
-          borderBottom='1px solid #e0e0e0'
-          justifyContent='space-between'
-          alignItems='center'
-          px={3}
-          pl={0}
-          position='sticky'
+          bgColor={useColorModeValue("white.100", "black.100")}
+          borderBottom="1px solid"
+          borderColor={useColorModeValue("gray.10", "gray.80")}
+          justifyContent="space-between"
+          alignItems="center"
+          px={4}
+          // pl={0}
+          position="sticky"
         >
-          <Flex h={16} alignItems='center' width='auto'>
-            <IconButton
-              aria-label='Switch contracts'
-              onClick={onOpenSwitcher}
-              icon={<FiMenu />}
-              h='100%'
-              w='16px'
-              rounded='none'
-              color='black'
-              borderRadius={0}
-              _hover={{ bgColor: "gray.25" }}
-            />
-            <Drawer
-              isOpen={isOpenSwitcher}
-              onClose={onCloseSwitcher}
-              placement='left'
-              size='xs'
-            >
-              <DrawerOverlay />
-              <DrawerContent px={0}>
-                <DrawerCloseButton />
-                <DrawerHeader></DrawerHeader>
+          <Flex h={16} alignItems="center" width="auto">
+            <HStack spacing={4} alignItems="center">
+              <Breadcrumb separator="/">
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
+                </BreadcrumbItem>
 
-                <DrawerBody>
-                  <VStack alignItems='flex-start' gap={6}>
-                    <HStack justify='space-between' w='100%' mt={16}>
-                      <Heading variant='cardTitle' fontSize='18px'>
-                        Contracts
-                      </Heading>
-                      <Button
-                        onClick={() => null}
-                        variant='primary'
-                        size='sm'
-                        fontSize='12px'
-                        rightIcon={<FiPlus />}
-                        w='120px'
-                      >
-                        New Contract
-                      </Button>
-                    </HStack>
-
-                  </VStack>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
+                <BreadcrumbItem isCurrentPage>
+                  <BreadcrumbLink href="#">Default</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </HStack>
           </Flex>
           <Flex
-            flex='1'
-            justifyContent='space-between'
-            alignItems='center'
-            ml='24px'
+            flex="1"
+            justifyContent="flex-end"
+            alignItems="center"
+            ml="24px"
           >
-            <Box width='auto'>
-              <Text as='span' fontSize='18px' color='gray.300'>
-                Welcome,
-              </Text>{" "}
-              <Text
-                as='span'
-                fontSize='18px'
-                fontWeight='semibold'
-                color='black'
-              >
-                Michael
-              </Text>
-            </Box>
-
-            <Flex alignItems='center' width='auto'>
+            <Flex alignItems="center" width="auto">
               <IconButton
-                aria-label='Menu'
+                aria-label="Switch Color Mode"
+                icon={<ColorModeIcon />}
+                variant="baseIconButton"
+                onClick={toggleColorMode}
+              />
+
+              <IconButton
+                aria-label="Show history"
+                icon={<HistoryIcon />}
+                variant="baseIconButton"
+              />
+
+              <IconButton
+                aria-label="Show notifications"
+                icon={<BellIcon />}
+                variant="baseIconButton"
+              />
+
+              <IconButton
+                aria-label="Menu"
                 onClick={onOpenNav}
                 ref={btnRef}
                 icon={<FiMenu />}
-                h='40px'
-                w='40px'
-                rounded='full'
-                color='iconGray.300'
-                bg='white'
-                border='1px solid gray.150'
-                _hover={{ bgColor: "gray.25" }}
-                // _active={{ bg: "gray.25", border: "1px solid gray.200" }}
-                // _pressed={{ bg: "white", border: "1px solid gray.200" }}
+                variant="baseIconButton"
               />
             </Flex>
           </Flex>
@@ -150,15 +117,19 @@ export function MobileNavbar({  }: NavbarProps) {
         {/* <Portal>{true && <MobileSidebar />}</Portal> */}
         <Drawer
           isOpen={isOpenNav}
-          placement='right'
+          placement="right"
           onClose={onCloseNav}
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton zIndex='popover' color='white' mt='12px' />
+          <DrawerContent
+            bg={useColorModeValue("white.100", "black.100")}
+            borderLeft="1px"
+            borderColor={useColorModeValue("gray.10", "gray.80")}
+          >
+            <DrawerCloseButton zIndex="popover" color="white" mt="12px" />
             <DrawerHeader>
-            <MobileSidebar />
+              <MobileSidebar />
             </DrawerHeader>
           </DrawerContent>
         </Drawer>

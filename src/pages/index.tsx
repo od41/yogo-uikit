@@ -113,7 +113,7 @@ export default function Home() {
             templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
             w="100%"
           >
-            <Card variant="highlights1">p
+            <Card variant="highlights1">
               <CardHeader>
                 <Text textStyle="h5" _dark={{ color: "black.100" }}>
                   Views
