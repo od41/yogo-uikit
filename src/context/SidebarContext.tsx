@@ -12,7 +12,7 @@ type SidebarContextValue = [
 
 const initialState: sidebarContextProps = {
   leftSidebar: true,
-  rightSidebar: false
+  rightSidebar: true
 };
 
 export const SidebarContext = createContext<SidebarContextValue>([
@@ -25,10 +25,10 @@ type SidebarContextProviderProps = {
 };
 
 export const SidebarContextProvider = ({ children }: SidebarContextProviderProps) => {
-  const [state, setState] = useState<sidebarContextProps>(initialState);
+  const [sidebarState, setSidebarState] = useState<sidebarContextProps>(initialState);
 
   return (
-    <SidebarContext.Provider value={[state, setState]} >
+    <SidebarContext.Provider value={[sidebarState, setSidebarState]} >
       {children}
     </SidebarContext.Provider>
   );

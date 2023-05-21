@@ -34,6 +34,21 @@ export const textStyles = {
     lineHeight: "110%",
     letterSpacing: "-1%",
   },
+  h5: {
+    ...base,
+    color: "black.100",
+    fontSize: "14px",
+    fontWeight: "semibold",
+    lineHeight: "110%",
+    letterSpacing: "-1%",
+  },
+  mid: {
+    fontSize: "14px",
+    color: "black.100",
+    _dark: {
+      color: 'gray.l40',
+    }
+  },
   small: {
     fontSize: "sm",
     color: "black.40",

@@ -11,33 +11,62 @@ import {
   IconButton,
   Text,
   VStack,
-  Link,
   Icon,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  useAccordion,
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import { BugIcon, SignalIcon, UserIcon } from "@rootcomponents/base/Icons";
 
 import { sidebarMenu } from "@root/utils/constants";
+import { NotificationsList } from "@rootcomponents/lists/NotificationsList";
+import { ActivityList } from "@rootcomponents/lists/ActivityList";
+import { ContactList } from "@rootcomponents/lists/ContactList";
+
+const notifications = [
+  {
+    type: "info", // info, user, bug
+    icon: BugIcon,
+    title: "You have a bug that needs to be fixed.",
+    time: "Just now",
+  },
+  {
+    type: "info", // info, user, bug
+    icon: UserIcon,
+    title: "You have a bug that needs to be fixed.",
+    time: "Just now",
+  },
+  {
+    type: "info", // info, user, bug
+    icon: SignalIcon,
+    title: "You have a bug that needs to be fixed.",
+    time: "Just now",
+  },
+]
+
+const contacts = [
+  {
+    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    title: "Lisa Dumar",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    title: "Austin James",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    title: "Donovan Rose",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    title: "Joel Tatum",
+  },
+]
 
 export const RightSidebar = (props: any) => {
-  const router = useRouter();
-
-  const isPathActive = (path: string, isParent: boolean) => {
-    if (isParent) return router.asPath.includes(path);
-
-    return router.asPath.endsWith(path);
-  };
-
-  const switchPage = (link: string) => {
-    router.push({ pathname: link }, undefined, {
-      shallow: true,
-    });
-  };
 
   return (
     <Flex
@@ -45,200 +74,32 @@ export const RightSidebar = (props: any) => {
       flexDir="column"
       top={0}
       left={0}
+      pt={7}
       position="sticky"
       borderLeft="1px"
       borderColor={useColorModeValue("gray.10", "gray.80")}
     >
-      <Flex
+      <VStack
         px="24px"
         width="100%"
-        height="73px"
-        borderRadius="md"
-        mb={4}
-        color="black.100"
-        fontSize="14px"
         justifyContent="space-between"
         alignItems="center"
+        gap={5}
       >
-        <Flex alignItems="center">
-          <Avatar
-            name="Coca Cola Ltd"
-            bgColor="nav.highlight"
-            color={useColorModeValue("black.100", "gray.l80")}
-            size="sm"
-            mr={2}
-          />
-          <Box>
-            <Text textStyle="base">
-              John Wick
-            </Text>
-          </Box>
-        </Flex>
-      </Flex>
+        <VStack alignItems="flex-start">
+          <Text textStyle="h5">Notifications</Text>
+          <NotificationsList list={notifications} />
+        </VStack>
 
-      <VStack gap={0} alignItems="flex-start">
-        <Text textStyle="small" pl={6} mb={2} >
-          Pages
-        </Text>
-        <Accordion w="100%" allowMultiple>
-          {sidebarMenu.map((menuItem, index) => (
-            <VStack key={`menu-item-${index}`} gap={0} spacing={0} w="100%">
-              {menuItem.submenu ? (
-                <AccordionItem w="100%" border="none" px={6}>
-                  {({ isExpanded }) => (
-                    <>
-                      <AccordionButton
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        _hover={{
-                          bgColor: useColorModeValue("gray.5", "gray.l10"),
-                        }}
-                        w="100%"
-                        py={1}
-                        color="black.100"
-                        position="relative"
-                        border="none"
-                        fontWeight="normal"
-                        rounded="md"
-                        bgColor={
-                          isPathActive(
-                            menuItem.link,
-                            menuItem.submenu != undefined
-                          )
-                            ? useColorModeValue("gray.5", "gray.l5")
-                            : "transparent"
-                        }
-                      >
-                        <Flex alignItems="center" fontSize="sm">
-                          {isPathActive(menuItem.link, true) && (
-                            <Box
-                              bg={useColorModeValue("brand.primary.alpha", "brand.secondary.beta")}
-                              width={1}
-                              height="4"
-                              rounded="full"
-                              position="absolute"
-                              left={0}
-                            />
-                          )}
-                          {isExpanded ? (
-                            <ChevronDownIcon boxSize={5} color={useColorModeValue("gray.20", "gray.l20")} />
-                          ) : (
-                            <ChevronRightIcon boxSize={5} color={useColorModeValue("gray.20", "gray.l20")} />
-                          )}
-                          <Icon
-                            as={menuItem.icon}
-                            mx={2}
-                            boxSize={4}
-                            color={
-                              isPathActive(
-                                menuItem.link,
-                                menuItem.submenu != undefined
-                              )
-                                ? useColorModeValue("brand.primary.alpha", "white.100")
-                                : useColorModeValue("brand.primary.alpha", "white.100")
-                            }
-                          />
-                          <Text textStyle="base">
-                            {menuItem.name}
-                          </Text>
-                        </Flex>
-                      </AccordionButton>
-                      <AccordionPanel color="black" p="0" w="100%">
-                        {menuItem.submenu.map((submenuItem, index) => (
-                          <Box
-                            key={`submenu-item-${index}`}
-                            onClick={() => switchPage(submenuItem.link)}
-                            display="flex"
-                            alignItems="center"
-                            _hover={{
-                              cursor: "pointer",
-                              bgColor: useColorModeValue("gray.5", "gray.80"),
-                            }}
-                            w="100%"
-                            py={1}
-                            px="24px"
-                            marginTop="0"
-                            position="relative"
-                            rounded="md"
-                            fontWeight={
-                              isPathActive(submenuItem.link, false) // not a parent
-                                ? "semibold"
-                                : "normal"
-                            }
-                            bgColor={
-                              isPathActive(submenuItem.link, false) // not a parent
-                                ? useColorModeValue("gray.5", "gray.80")
-                                : "transparent"
-                            }
-                          >
-                            {isPathActive(submenuItem.link, false) && (
-                              <Box
-                                bg={useColorModeValue("brand.primary.alpha", "brand.secondary.beta")}
-                                width={1}
-                                height="4"
-                                rounded="full"
-                                position="absolute"
-                                left={0}
-                              />
-                            )}
-                            <Flex alignItems="center">
-                              <Text textStyle="base" ml={12}>
-                                {submenuItem.name}
-                              </Text>
-                            </Flex>
-                          </Box>
-                        ))}
-                      </AccordionPanel>
-                    </>
-                  )}
-                </AccordionItem>
-              ) : (
-                <AccordionItem
-                  onClick={() => switchPage(menuItem.link)}
-                  display="flex"
-                  alignItems="center"
-                  _hover={{
-                    bgColor: "nav.highlight",
-                  }}
-                  w="100%"
-                  py={5}
-                  px="24px"
-                  color="black"
-                  border="none"
-                  fontWeight={
-                    isPathActive(menuItem.link, menuItem.submenu != undefined)
-                      ? "semibold"
-                      : "normal"
-                  }
-                  bgColor={
-                    isPathActive(menuItem.link, menuItem.submenu != undefined)
-                      ? "nav.highlight"
-                      : ""
-                  }
-                >
-                  <Flex alignItems="center" fontSize="14px">
-                    <Icon
-                      as={menuItem.icon}
-                      mr={6}
-                      w={6}
-                      h={6}
-                      color={
-                        isPathActive(
-                          menuItem.link,
-                          menuItem.submenu != undefined
-                        )
-                          ? "iconGray.200"
-                          : "iconGray.100"
-                      }
-                    />
-                    {menuItem.name}
-                  </Flex>
-                </AccordionItem>
-              )}
-            </VStack>
-          ))}
-        </Accordion>
+        <VStack alignItems="flex-start">
+          <Text textStyle="h5">Activities</Text>
+          <ActivityList list={notifications} />
+        </VStack>
+
+        <VStack alignItems="flex-start" w="100%">
+          <Text textStyle="h5">Contacts</Text>
+          <ContactList list={contacts} />
+        </VStack>
       </VStack>
     </Flex>
   );

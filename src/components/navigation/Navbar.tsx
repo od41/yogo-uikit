@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 
 import {
   Flex,
@@ -45,6 +45,7 @@ import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@ro
 import { useRouter } from "next/router";
 
 import {RightSidebar} from '@root/components/navigation/RightSidebar'
+import { SidebarContext } from "@root/context/SidebarContext";
 
 export interface NavbarProps {
   title?: string;
@@ -67,7 +68,9 @@ export function Navbar({ title, username }: NavbarProps) {
     onClose: onCloseRightSidebar,
   } = useDisclosure();
 
-  const handleLogout = () => {};
+  const [sidebarState, setSidebarState] = useContext(SidebarContext)
+
+  
   return (
     <>
       <Flex
@@ -89,6 +92,10 @@ export function Navbar({ title, username }: NavbarProps) {
               aria-label="Show sidebar"
               variant="baseIconButton"
               icon={<SidebarIcon />}
+              onClick={() => {setSidebarState({
+                leftSidebar: !sidebarState.leftSidebar,
+                rightSidebar: sidebarState.rightSidebar
+              })}}
             />
 
             <IconButton
@@ -136,7 +143,10 @@ export function Navbar({ title, username }: NavbarProps) {
               aria-label="Show sidebar"
               icon={<SidebarIcon />}
               variant="baseIconButton"
-              onClick={onOpenRightSidebar}
+              onClick={() => {setSidebarState({
+                leftSidebar: sidebarState.leftSidebar,
+                rightSidebar: !sidebarState.rightSidebar
+              })}}
             />
 
             {/* <Menu>

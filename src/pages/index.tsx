@@ -113,57 +113,105 @@ export default function Home() {
             templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
             w="100%"
           >
-            <Card variant="highlights1" >
+            <Card variant="highlights1">p
               <CardHeader>
-                <Heading size="md">Viewsdd</Heading>
+                <Text textStyle="h5" _dark={{ color: "black.100" }}>
+                  Views
+                </Text>
               </CardHeader>
               <CardBody>
-                <Flex w="full" alignItems="center" justify="space-between">
-                  <Heading>721K</Heading>
-                  <Text>+9.15%</Text>
+                <Flex
+                  w="full"
+                  alignItems="center"
+                  justify="space-between"
+                  mt={2}
+                >
+                  <Text textStyle="h2" _dark={{ color: "black.100" }}>
+                    721K
+                  </Text>
+                  <Text textStyle="small" _dark={{ color: "black.100" }}>
+                    +9.15%
+                  </Text>
                 </Flex>
               </CardBody>
             </Card>
 
             <Card variant="highlights2">
               <CardHeader>
-                <Heading size="md">Visits</Heading>
+                <Text textStyle="h5" _dark={{ color: "black.100" }}>
+                  Visits
+                </Text>
               </CardHeader>
               <CardBody>
-                <Flex w="full" alignItems="center" justify="space-between">
-                  <Heading>1,156</Heading>
-                  <Text>-0.56%</Text>
+                <Flex
+                  w="full"
+                  alignItems="center"
+                  justify="space-between"
+                  mt={2}
+                >
+                  <Text textStyle="h2" _dark={{ color: "black.100" }}>
+                    1,156
+                  </Text>
+                  <Text textStyle="small" _dark={{ color: "black.100" }}>
+                    -0.56%
+                  </Text>
                 </Flex>
               </CardBody>
             </Card>
 
             <Card variant="highlights1">
               <CardHeader>
-                <Heading size="md">New Users</Heading>
+                <Text textStyle="h5" _dark={{ color: "black.100" }}>
+                  New Users
+                </Text>
               </CardHeader>
               <CardBody>
-                <Flex w="full" alignItems="center" justify="space-between">
-                  <Heading>145K</Heading>
-                  <Text>+3.21%</Text>
+                <Flex
+                  w="full"
+                  alignItems="center"
+                  justify="space-between"
+                  mt={2}
+                >
+                  <Text textStyle="h2" _dark={{ color: "black.100" }}>
+                    145K
+                  </Text>
+                  <Text textStyle="small" _dark={{ color: "black.100" }}>
+                    +3.21%
+                  </Text>
                 </Flex>
               </CardBody>
             </Card>
 
             <Card variant="highlights2">
               <CardHeader>
-                <Heading size="md">Active Users</Heading>
+                <Text textStyle="h5" _dark={{ color: "black.100" }}>
+                  Active Users
+                </Text>
               </CardHeader>
               <CardBody>
-                <Flex w="full" alignItems="center" justify="space-between">
-                  <Heading>1,156</Heading>
-                  <Text>-0.56%</Text>
+                <Flex
+                  w="full"
+                  alignItems="center"
+                  justify="space-between"
+                  mt={2}
+                >
+                  <Text textStyle="h2" _dark={{ color: "black.100" }}>
+                    1,156
+                  </Text>
+                  <Text textStyle="small" _dark={{ color: "black.100" }}>
+                    -0.56%
+                  </Text>
                 </Flex>
               </CardBody>
             </Card>
           </SimpleGrid>
 
-          <SimpleGrid spacing={6} templateColumns={{sm: "auto-fit", md: "1fr 320px"}} w="100%">
-            <Card variant="filled" >
+          <SimpleGrid
+            spacing={6}
+            templateColumns={{ sm: "auto-fit", md: "1fr 320px" }}
+            w="100%"
+          >
+            <Card variant="filled">
               <CardHeader>
                 <Select variant="unstyled" width="fit-content">
                   <option value="option1">Total Users</option>
@@ -219,11 +267,7 @@ export default function Home() {
                     <XAxis type="number" />
                     <YAxis type="category" dataKey="name" />
                     <Tooltip />
-                    <Bar
-                      dataKey="traffic"
-                      fill="#1c1c1c"
-                      barSize={10}
-                    />
+                    <Bar dataKey="traffic" fill="#1c1c1c" barSize={10} />
                   </BarChart>
                 </ResponsiveContainer>
               </CardBody>
@@ -289,7 +333,12 @@ export default function Home() {
                         />
                       ))}
                     </Pie>
-                    <Legend verticalAlign="middle" align="right" height={0} layout="vertical" />
+                    <Legend
+                      verticalAlign="middle"
+                      align="right"
+                      height={0}
+                      layout="vertical"
+                    />
                     <Tooltip />
                   </PieChart>
                 </ResponsiveContainer>
