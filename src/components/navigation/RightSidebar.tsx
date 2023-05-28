@@ -21,7 +21,6 @@ import {
 
 import { BugIcon, SignalIcon, UserIcon } from "@rootcomponents/base/Icons";
 
-import { sidebarMenu } from "@root/utils/constants";
 import { NotificationsList } from "@rootcomponents/lists/NotificationsList";
 import { ActivityList } from "@rootcomponents/lists/ActivityList";
 import { ContactList } from "@rootcomponents/lists/ContactList";

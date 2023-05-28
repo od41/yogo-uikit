@@ -158,7 +158,7 @@ export const Sidebar = (props: any) => {
                           {menuItem.submenu.map((submenuItem, index) => (
                             <Box
                               key={`submenu-item-${index}`}
-                              onClick={() => switchPage(submenuItem.link)}
+                              onClick={() => switchPage(submenuItem.link, router)}
                               display="flex"
                               alignItems="center"
                               _hover={{
@@ -208,7 +208,7 @@ export const Sidebar = (props: any) => {
                   </AccordionItem>
                 ) : (
                   <AccordionItem
-                    onClick={() => switchPage(menuItem.link)}
+                    onClick={() => switchPage(menuItem.link, router)}
                     display="flex"
                     alignItems="center"
                     _hover={{

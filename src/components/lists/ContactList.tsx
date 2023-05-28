@@ -12,8 +12,8 @@ import {
 export const ContactList = ({list}: any) => {
   return (
     <VStack gap={0} justify='flex-start' pt={2} w="100%">
-        {list.map((listItem: any) => (
-            <Flex alignItems="flex-start" justify="flex-start" py={1} w="100%">
+        {list.map((listItem: any, key: number) => (
+            <Flex key={`contact-${key}`} alignItems="flex-start" justify="flex-start" py={1} w="100%">
                 <Avatar
                     name={listItem.title}
                     bgColor="brand.secondary.kappa"

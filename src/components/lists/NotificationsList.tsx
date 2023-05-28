@@ -12,8 +12,8 @@ import {
 export const NotificationsList = ({list}: any) => {
   return (
     <VStack gap={0} justify='flex-start' pt={2}>
-        {list.map((notification: any) => (
-            <Flex alignItems="flex-start" justify="space-between" py={1}>
+        {list.map((notification: any, key: number) => (
+            <Flex key={`contact-${key}`} alignItems="flex-start" justify="space-between" py={1}>
                 <Avatar
                     // name="Item"
                     bgColor="brand.secondary.kappa"
