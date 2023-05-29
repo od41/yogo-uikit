@@ -25,7 +25,7 @@ import { NotificationsList } from "@rootcomponents/lists/NotificationsList";
 import { ActivityList } from "@rootcomponents/lists/ActivityList";
 import { ContactList } from "@rootcomponents/lists/ContactList";
 
-const notifications = [
+export const notifications = [
   {
     type: "info", // info, user, bug
     icon: BugIcon,

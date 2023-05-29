@@ -252,8 +252,8 @@ export default function Home() {
             </Card>
 
             <Card variant="filled">
-              <CardHeader>
-                <Heading size="md">Traffic by Website</Heading>
+              <CardHeader mb={4}>
+                <Text textStyle="h3">Traffic by Website</Text>
               </CardHeader>
               <CardBody>
                 <ResponsiveContainer width="100%" height={240}>
@@ -280,8 +280,8 @@ export default function Home() {
             w="100%"
           >
             <Card variant="filled" bg="#F7F9FB">
-              <CardHeader>
-                <Heading size="md">Traffic by Device</Heading>
+              <CardHeader mb={4}>
+                <Text textStyle="h3">Traffic by Device</Text>
               </CardHeader>
               <CardBody>
                 <ResponsiveContainer width="100%" height={240}>
@@ -308,8 +308,8 @@ export default function Home() {
             </Card>
 
             <Card variant="filled" bg="#F7F9FB">
-              <CardHeader>
-                <Heading size="md">Traffic by Location</Heading>
+              <CardHeader mb={4}>
+                <Text textStyle="h3">Traffic by Location</Text>
               </CardHeader>
               <CardBody>
                 <ResponsiveContainer width="100%" height={240}>
@@ -348,8 +348,8 @@ export default function Home() {
 
           <SimpleGrid spacing={6} templateColumns="auto-fill" w="100%">
             <Card variant="filled" bg="#F7F9FB">
-              <CardHeader>
-                <Heading size="md">Marketing & SEO</Heading>
+              <CardHeader mb={4}>
+                <Text textStyle="h3">Marketing & SEO</Text>
               </CardHeader>
               <CardBody>
                 <ResponsiveContainer width="100%" height={240}>

@@ -22,8 +22,8 @@ const ProjectDetails = () => {
   return (
     <>
       <Page>
-        <VStack w="100%" spacing={6} alignItems="flex-start">
-          <Tabs position="relative" variant="unstyled">
+        <VStack w="100%" spacing={6} alignItems="flex-start" >
+          <Tabs w="100%" variant="line" colorScheme={"black"}>
             <TabList>
               <Tab>Overview</Tab>
               <Tab>Targets</Tab>
@@ -33,33 +33,33 @@ const ProjectDetails = () => {
               <Tab>Activity</Tab>
               <Tab>Settings</Tab>
             </TabList>
-            <TabIndicator mt="0px" height="2px" bg="brand.primary.alpha" />
+            {/* <TabIndicator mt="0px" height="2px" bg="brand.primary.alpha" /> */}
             <TabPanels>
-              <TabPanel>
+              <TabPanel px={0}>
                 <OverviewTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <TargetsTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <BudgetTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <UsersTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <FilesTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <ActivityTab />
               </TabPanel>
 
-              <TabPanel>
+              <TabPanel px={0}>
                 <SettingsTab />
               </TabPanel>
 
