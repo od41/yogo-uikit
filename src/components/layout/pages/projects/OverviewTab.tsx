@@ -14,14 +14,111 @@ import {
     SimpleGrid,
     Divider,
   } from "@chakra-ui/react";
+import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
+
+import { useDropzone } from "react-dropzone";
 
 import { ActivityList } from "@rootcomponents/lists/ActivityList";
+import { FilesList } from "@rootcomponents/lists/FilesList";
+import { FullTable } from '@rootcomponents/tables/FullTable';
+import { MiniTable } from '@rootcomponents/tables/MiniTable';
 
 import { FiPocket } from "react-icons/fi";
 
 import { notifications } from '@rootcomponents/navigation/RightSidebar';
+import { FileUpload } from '@rootcomponents/forms/FileUpload';
+
+
+const latestFiles = [
+  {
+    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    owner: "Lisa Dumar",
+    fileSize: 5.6,
+    time: "Just now",
+    name: "Project design proposal stylings",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    owner: "Lisa Dumar",
+    fileSize: 5.6,
+    time: "Just now",
+    name: "Project design proposal stylings",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    owner: "Lisa Dumar",
+    fileSize: 5.6,
+    time: "Just now",
+    name: "Project design proposal stylings",
+  },
+  {
+    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    owner: "Lisa Dumar",
+    fileSize: 5.6,
+    time: "Just now",
+    name: "Project design proposal stylings",
+  },
+]
 
 export const OverviewTab = () => {
+
+  const onDrop = React.useCallback((acceptedFiles: any) => {
+    // Do something with the files
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+  const columnHelper = createColumnHelper<any>();
+
+  const columns = React.useMemo<ColumnDef<any, any>[]>(
+    () => [
+      columnHelper.accessor("manager", {
+        header: "Manager",
+        cell: (info) => <span>{info.renderValue()}</span>,
+      }),
+      columnHelper.accessor("date", {
+        header: "Date",
+        cell: (info) => <span>{info.renderValue()}</span>,
+      }),
+      columnHelper.accessor("amount", {
+        header: "Amount",
+        cell: (info) => <span>{info.renderValue()}</span>,
+      }),
+      columnHelper.accessor("status", {
+        header: "Status",
+        cell: (info) => <span>{info.renderValue()}</span>,
+      }),
+    ],
+    []
+  );
+
+  const data = React.useMemo<any[]>(() => [
+    {
+      manager: "Lisa Dumar",
+      date: "Jun 24, 2021",
+      amount: "$942",
+      status: "In Progress",
+    },
+    {
+      manager: "Lisa Dumar",
+      date: "Jun 24, 2021",
+      amount: "$942",
+      status: "In Progress",
+    },
+    {
+      manager: "Lisa Dumar",
+      date: "Jun 24, 2021",
+      amount: "$942",
+      status: "In Progress",
+    },
+    {
+      manager: "Lisa Dumar",
+      date: "Jun 24, 2021",
+      amount: "$942",
+      status: "In Progress",
+    },
+  ], []);
+
   return (
     <>
       <VStack w="100%" spacing={6} alignItems="flex-start">
@@ -88,7 +185,7 @@ export const OverviewTab = () => {
           templateColumns="repeat(auto-fit, minmax(320px, 1fr))"
           w="100%"
         >
-          <Card variant="filled" bg="#F7F9FB">
+          <Card variant="filled">
             <CardHeader mb={4}>
               <Text textStyle="h3">What's on the road?</Text>
             </CardHeader>
@@ -97,12 +194,18 @@ export const OverviewTab = () => {
             </CardBody>
           </Card>
 
-          <Card variant="filled" bg="#F7F9FB">
+          <Card variant="filled">
             <CardHeader mb={4}>
               <Text textStyle="h3">Latest Files</Text>
             </CardHeader>
             <CardBody>
-              content
+              <FilesList list={latestFiles} />
+              <FileUpload 
+                label=""
+                isDragActive={isDragActive}
+                rootprops={getRootProps}
+                inputprops={getInputProps}
+              />
             </CardBody>
           </Card>
         </SimpleGrid>
@@ -112,12 +215,16 @@ export const OverviewTab = () => {
           templateColumns="repeat(auto-fit, minmax(320px, 1fr))"
           w="100%"
         >
-          <Card variant="filled" bg="#F7F9FB">
+          <Card variant="filled">
             <CardHeader mb={4}>
               <Text textStyle="h3">Project Spendings</Text>
             </CardHeader>
             <CardBody>
-              content
+            <MiniTable
+              columns={columns}
+              data={data}
+              // onGlobalFilterChange={()=>{}}
+            />
             </CardBody>
           </Card>
         </SimpleGrid>

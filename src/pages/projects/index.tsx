@@ -154,7 +154,8 @@ export default function Home() {
 
           <SimpleGrid
             spacing={6}
-            templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+            columns={{ base: 1, md: 2, lg: 3 }}
+            // templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
             w="100%"
           >
             {projectsList.map((project, key: number) => (

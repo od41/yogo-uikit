@@ -50,7 +50,7 @@ export const textStyles = {
     }
   },
   small: {
-    fontSize: "sm",
+    fontSize: "12px",
     color: "black.40",
     _dark: {
       color: 'gray.l40',

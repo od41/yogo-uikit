@@ -4,8 +4,7 @@ import { breadcrumbTheme } from './breadcrumb'
 import { cardTheme } from './card'
 import { textStyles } from './typography'
 import { buttonTheme } from './button'
-
-// color mode
+import { tableTheme } from './tables'
 
 // colors
 const colors = {
@@ -88,6 +87,7 @@ const components = {
     Breadcrumb: breadcrumbTheme,
     Button: buttonTheme,
     Card: cardTheme,
+    Table: tableTheme,
  }
 
 

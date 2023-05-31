@@ -3,16 +3,24 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
+  InputProps as ChakraInputProps,
 } from "@chakra-ui/react";
 import React from "react";
 import { SearchIcon, ShortcutIcon } from "@rootcomponents/base/Icons";
 
-export const Search = () => {
+type InputProps = {
+  placeholder?: string
+} & ChakraInputProps
+
+export const Search = ({placeholder, ...rest}: InputProps) => {
   return (
     <>
       <InputGroup variant="filled">
         <InputLeftAddon children={<SearchIcon/>} />
-        <Input placeholder="Search" />
+        <Input 
+          placeholder={placeholder ? placeholder : "Search"} 
+          {...rest}
+        />
         <InputRightAddon children={<ShortcutIcon />} />
       </InputGroup>
     </>
