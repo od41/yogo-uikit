@@ -40,7 +40,7 @@ export const ProjectCard = ({
         return (completedTasks / totalTasks) * 100;
     }
   return (
-    <Card variant="filled" bg="#F7F9FB">
+    <Card variant="filled" bg="#F7F9FB" w="100%">
       <CardHeader mb={3}>
         <Flex w="100%" justify="space-between">
           <Box>

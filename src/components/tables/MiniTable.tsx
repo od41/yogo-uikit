@@ -94,11 +94,11 @@ export const MiniTable = <T,>({
               {table.getRowModel().rows.map((row) => (
                 <Tr
                   key={row.id}
-                  _hover={
-                    onRowClick
-                      ? { cursor: "pointer", bg: "brand.secondary.kappa" }
-                      : { bg: "brand.secondary.kappa" }
-                  }
+                  // _hover={
+                  //   onRowClick
+                  //     ? { cursor: "pointer" }
+                  //     : { cursor: "default"}
+                  // }
                   onClickCapture={
                     onRowClick
                       ? (event) => {

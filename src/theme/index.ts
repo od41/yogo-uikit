@@ -5,6 +5,7 @@ import { cardTheme } from './card'
 import { textStyles } from './typography'
 import { buttonTheme } from './button'
 import { tableTheme } from './tables'
+import { badgeTheme } from './badge'
 
 // colors
 const colors = {
@@ -88,6 +89,7 @@ const components = {
     Button: buttonTheme,
     Card: cardTheme,
     Table: tableTheme,
+    Badge: badgeTheme,
  }
 
 

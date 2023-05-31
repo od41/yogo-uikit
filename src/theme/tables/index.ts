@@ -18,6 +18,9 @@ export const filled = definePartsStyle((props) => {
       bg: 'transparent',
       borderBottom: "1px solid",
       borderColor: "black.20",
+      _hover: {
+        bg: "transparent",
+      },
       _dark: {
 
       }
@@ -28,6 +31,9 @@ export const filled = definePartsStyle((props) => {
       textTransform: "sentencecase",
       fontWeight: "normal",
       letterSpacing: "normal",
+      _hover: {
+        bg: "transparent",
+      },
       _dark: {
         color: 'gray.l40',
       }
@@ -37,11 +43,20 @@ export const filled = definePartsStyle((props) => {
     },
     tr: {
       width: "100%",
+      _hover: {
+        bg: "brand.secondary.kappa",
+        _dark: {
+          bg: 'gray.l10',
+        }
+      }
     },
     td: {
       color: "black.100",
       fontSize: "14px",
       fontWeight: "normal",
+      _dark: {
+        color: 'gray.l80',
+      }
     },
     tfoot: {},
   }
