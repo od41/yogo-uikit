@@ -63,11 +63,11 @@ export const Page = ({children}: PageProps) => {
           minHeight="100vh"
           w="100%"
           overflow="visible"
-          // overflowX="hidden"
+          overflowX="hidden"
         >
           {isMobile ? <MobileNavbar /> : <Navbar />}
           <Flex
-            p={7}
+            p={"2rem"}
             w="100%"
           >
             {children}

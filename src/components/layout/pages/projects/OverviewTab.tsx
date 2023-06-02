@@ -13,6 +13,7 @@ import {
     Icon,
     SimpleGrid,
     Divider,
+    Stack,
   } from "@chakra-ui/react";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
@@ -124,7 +125,7 @@ export const OverviewTab = () => {
       <VStack w="100%" spacing={6} alignItems="flex-start">
         <SimpleGrid
           spacing={6}
-          templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+          columns={1}
           w="100%"
         >
           <Card variant="filled">
@@ -143,11 +144,12 @@ export const OverviewTab = () => {
               </Flex>
             </CardHeader>
             <CardBody>
-              <Flex
+              <Stack
                 w="100%"
+                direction={['column', 'column', 'row']}
+                spacing={[5, 0]}
                 justify="space-between"
-                alignItems="center"
-                h="50px"
+                alignItems={["flex-start", "center"]}
                 mt={2}
               >
                 <VStack spacing={2} align="flex-start">
@@ -175,7 +177,7 @@ export const OverviewTab = () => {
                   <Text textStyle="mid">Budget Spent</Text>
                   <Text textStyle="h3">$15,000</Text>
                 </VStack>
-              </Flex>
+              </Stack>
             </CardBody>
           </Card>
         </SimpleGrid>

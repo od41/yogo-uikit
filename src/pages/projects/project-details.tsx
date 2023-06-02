@@ -23,8 +23,8 @@ const ProjectDetails = () => {
     <>
       <Page>
         <VStack w="100%" spacing={6} alignItems="flex-start" >
-          <Tabs w="100%" variant="line" colorScheme={"black"}>
-            <TabList>
+          <Tabs w="100%" variant="base" colorScheme={"blackAlpha"} >
+            <TabList overflowX="scroll" >
               <Tab>Overview</Tab>
               <Tab>Targets</Tab>
               <Tab>Budget</Tab>
@@ -35,31 +35,31 @@ const ProjectDetails = () => {
             </TabList>
             {/* <TabIndicator mt="0px" height="2px" bg="brand.primary.alpha" /> */}
             <TabPanels>
-              <TabPanel px={0}>
+              <TabPanel>
                 <OverviewTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <TargetsTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <BudgetTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <UsersTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <FilesTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <ActivityTab />
               </TabPanel>
 
-              <TabPanel px={0}>
+              <TabPanel>
                 <SettingsTab />
               </TabPanel>
 
