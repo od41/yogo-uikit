@@ -7,6 +7,7 @@ import { buttonTheme } from './button'
 import { tableTheme } from './tables'
 import { badgeTheme } from './badge'
 import { tabsTheme } from './tabs'
+import { menuTheme } from './menu'
 
 // colors
 const colors = {
@@ -97,6 +98,7 @@ const components = {
     Table: tableTheme,
     Badge: badgeTheme,
     Tabs: tabsTheme,
+    Menu: menuTheme,
  }
 
 

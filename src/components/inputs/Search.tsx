@@ -10,12 +10,13 @@ import { SearchIcon, ShortcutIcon } from "@rootcomponents/base/Icons";
 
 type InputProps = {
   placeholder?: string
+  variant?: string
 } & ChakraInputProps
 
-export const Search = ({placeholder, ...rest}: InputProps) => {
+export const Search = ({placeholder, variant="filled", ...rest}: InputProps) => {
   return (
     <>
-      <InputGroup variant="filled">
+      <InputGroup variant={variant}>
         <InputLeftAddon children={<SearchIcon/>} />
         <Input 
           placeholder={placeholder ? placeholder : "Search"} 

@@ -21,7 +21,6 @@ import { useDropzone } from "react-dropzone";
 
 import { ActivityList } from "@rootcomponents/lists/ActivityList";
 import { FilesList } from "@rootcomponents/lists/FilesList";
-import { FullTable } from '@rootcomponents/tables/FullTable';
 import { MiniTable } from '@rootcomponents/tables/MiniTable';
 
 import { FiPocket } from "react-icons/fi";

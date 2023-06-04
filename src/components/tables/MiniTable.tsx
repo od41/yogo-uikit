@@ -11,6 +11,8 @@ import {
   TableCaption,
   TableContainer,
   HStack,
+  VStack,
+  Text,
 } from "@chakra-ui/react";
 import { rankItem } from "@tanstack/match-sorter-utils";
 import {
@@ -70,12 +72,48 @@ export const MiniTable = <T,>({
   return (
     <>
       <HStack w="auto" gap={4} justifyContent="flex-start" width="100%">
-        <TableContainer maxWidth="100%" w="100%">
+      {data.length == 0 ? (
+        <VStack minH="70vh" w="100%" justifyContent="flex-start" spacing={60}>
+          <TableContainer maxWidth="100%" w="100%">
+            <Table variant="filled" w="100%">
+              <Thead>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <Tr
+                    borderBottom="0"
+                    _hover={{ bg: "transparent", cursor: "default" }}
+                    key={headerGroup.id}
+                  >
+                    {headerGroup.headers.map((header) => (
+                      <Th key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </Th>
+                    ))}
+                  </Tr>
+                ))}
+              </Thead>
+            </Table>
+          </TableContainer>
+          <VStack gap={4} px={8} py={6} bgColor="gray.50" rounded="lg">
+            {/* <EmptyDocumentIcon boxSize={8} color='iconGray.300' /> */}
+            <Text textStyle="h3">No results to show</Text>
+          </VStack>
+        </VStack>
+      ) : (
+      <TableContainer maxWidth="100%" w="100%">
           <Table variant="filled" w="100%">
             {showHead && (
               <Thead>
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <Tr key={headerGroup.id}>
+                  <Tr 
+                    borderBottom="0"
+                    _hover={{bg: "transparent", cursor: "default"}} 
+                    key={headerGroup.id}
+                  >
                     {headerGroup.headers.map((header) => (
                       <Th key={header.id}>
                         {header.isPlaceholder
@@ -94,11 +132,6 @@ export const MiniTable = <T,>({
               {table.getRowModel().rows.map((row) => (
                 <Tr
                   key={row.id}
-                  // _hover={
-                  //   onRowClick
-                  //     ? { cursor: "pointer" }
-                  //     : { cursor: "default"}
-                  // }
                   onClickCapture={
                     onRowClick
                       ? (event) => {
@@ -143,6 +176,7 @@ export const MiniTable = <T,>({
             </Tfoot>
           </Table>
         </TableContainer>
+        )}
       </HStack>
     </>
   );
