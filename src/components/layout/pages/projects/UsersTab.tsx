@@ -22,20 +22,20 @@ export const UsersTab = () => {
         cell: (info) => (
           <Flex align="center">
             <Avatar src={info.renderValue().picture} size="sm" mr={3} />
-            <Text textStyle="mid">{info.renderValue().name}</Text>
+            <span>{info.renderValue().name}</span>
           </Flex>
         ),
       }),
       columnHelper.accessor("email", {
         header: "Email",
-        cell: (info) => <Text textStyle="mid">{info.renderValue()}</Text>,
+        cell: (info) => <span>{info.renderValue()}</span>,
       }),
       columnHelper.accessor("registrationDate", {
         header: "Registration Date",
         cell: (info) => (
           <Flex align="center">
             <Icon as={FiCalendar} mr={1.5} boxSize={3.5} color="gray.40" _dark={{color: "gray.l20"}} />
-            <Text textStyle="mid">{info.renderValue()}</Text>
+            <span>{info.renderValue()}</span>
           </Flex>
         ),
       }),

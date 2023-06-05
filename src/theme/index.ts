@@ -8,6 +8,7 @@ import { tableTheme } from './tables'
 import { badgeTheme } from './badge'
 import { tabsTheme } from './tabs'
 import { menuTheme } from './menu'
+import { avatarTheme } from './avatar'
 
 // colors
 const colors = {
@@ -90,16 +91,17 @@ const config: ThemeConfig = {
     useSystemColorMode: true,
 }
 
-const components = { 
-    Input: inputTheme,
-    Breadcrumb: breadcrumbTheme,
-    Button: buttonTheme,
-    Card: cardTheme,
-    Table: tableTheme,
-    Badge: badgeTheme,
-    Tabs: tabsTheme,
-    Menu: menuTheme,
- }
+const components = {
+  Avatar: avatarTheme,
+  Badge: badgeTheme,
+  Breadcrumb: breadcrumbTheme,
+  Button: buttonTheme,
+  Card: cardTheme,
+  Input: inputTheme,
+  Menu: menuTheme,
+  Table: tableTheme,
+  Tabs: tabsTheme,
+};
 
 
 export const theme = extendTheme({
