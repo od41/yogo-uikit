@@ -1,49 +1,38 @@
 import React from "react";
+import NextLink from 'next/link'
 
 import {
   Flex,
   IconButton,
-  CloseButton,
-  Text,
-  Box,
-  Image as ChakraImage,
-  Link as ChakraLink,
-  Portal,
   Drawer,
-  DrawerBody,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   DrawerHeader,
   useDisclosure,
-  VStack,
-  HStack,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   useColorModeValue,
-  useColorMode
+  useColorMode,
+  Link,
+  VStack,
 } from "@chakra-ui/react";
 
-import { FiMenu, FiPlus, FiClipboard } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 
 import { NavbarProps } from "@root/components/navigation/Navbar";
-import { MobileSidebar } from "@root/components/navigation/MobileSidebar";
 
-import { HistoryIcon, BellIcon, ColorModeIcon } from "@root/components/base/Icons";
+import { ColorModeIcon } from "@root/components/base/Icons";
 
-export function MobileNavbar({  }: NavbarProps) {
+import { LogoIcon } from '@root/components/base/Icons';
+
+import { navbarLinks } from "./LandingNavbar";
+
+export function MobileLandingNavbar({  }: NavbarProps) {
   const { colorMode, toggleColorMode } = useColorMode()
 
   const {
     isOpen: isOpenNav,
     onOpen: onOpenNav,
     onClose: onCloseNav,
-  } = useDisclosure();
-  const {
-    isOpen: isOpenSwitcher,
-    onOpen: onOpenSwitcher,
-    onClose: onCloseSwitcher,
   } = useDisclosure();
 
   const btnRef = React.useRef<HTMLButtonElement>(null);
@@ -57,26 +46,15 @@ export function MobileNavbar({  }: NavbarProps) {
           top={0}
           left={0}
           bgColor={useColorModeValue("white.100", "black.100")}
-          borderBottom="1px solid"
-          borderColor={useColorModeValue("gray.10", "gray.80")}
           justifyContent="space-between"
           alignItems="center"
           px={4}
-          // pl={0}
           position="sticky"
         >
           <Flex h={16} alignItems="center" width="auto">
-            <HStack spacing={4} alignItems="center">
-              <Breadcrumb separator="/">
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
-                </BreadcrumbItem>
-
-                <BreadcrumbItem isCurrentPage>
-                  <BreadcrumbLink href="#">Default</BreadcrumbLink>
-                </BreadcrumbItem>
-              </Breadcrumb>
-            </HStack>
+            <Link href="/" as={NextLink}>
+              <LogoIcon boxSize={24} color="brand.secondary.gamma" />
+            </Link>
           </Flex>
           <Flex
             flex="1"
@@ -93,18 +71,6 @@ export function MobileNavbar({  }: NavbarProps) {
               />
 
               <IconButton
-                aria-label="Show history"
-                icon={<HistoryIcon />}
-                variant="baseIconButton"
-              />
-
-              <IconButton
-                aria-label="Show notifications"
-                icon={<BellIcon />}
-                variant="baseIconButton"
-              />
-
-              <IconButton
                 aria-label="Menu"
                 onClick={onOpenNav}
                 ref={btnRef}
@@ -114,14 +80,14 @@ export function MobileNavbar({  }: NavbarProps) {
             </Flex>
           </Flex>
         </Flex>
-        {/* <Portal>{true && <MobileSidebar />}</Portal> */}
         <Drawer
           isOpen={isOpenNav}
-          placement="right"
+          placement="top"
           onClose={onCloseNav}
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
+
           <DrawerContent
             bg={useColorModeValue("white.100", "black.100")}
             borderLeft="1px"
@@ -129,7 +95,22 @@ export function MobileNavbar({  }: NavbarProps) {
           >
             <DrawerCloseButton zIndex="popover" variant="baseIconButton" mt="12px" />
             <DrawerHeader>
-              <MobileSidebar />
+              <VStack width="auto" gap={3} mt={4} align="center">
+                {navbarLinks.map((link, index) => (
+                  <Link
+                    key={`navbar-links-${index}`}
+                    href={link.href}
+                    as={NextLink}
+                    variant="navlink"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <Link href={"/signin"} as={NextLink} variant="outlineButton" w="100%" textAlign="center">
+                  Sign in
+                </Link>
+              </VStack>
             </DrawerHeader>
           </DrawerContent>
         </Drawer>

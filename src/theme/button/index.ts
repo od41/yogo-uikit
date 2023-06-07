@@ -57,6 +57,7 @@ const solid = defineStyle({
   _dark: {
     background: 'brand.secondary.g',
     color: 'black.100',
+    border: 'none',
 
     _hover: {
       background: 'brand.secondary.f',
@@ -64,7 +65,35 @@ const solid = defineStyle({
   }
 })
 
+const customOutline = defineStyle({
+  background: 'white',
+  color: 'black.100',
+  rounded: 'md',
+  border: '1px solid',
+  borderColor: 'gray.10',
+  fontSize: '13px',
+  py: 2,
+
+  _hover: {
+    background: 'brand.primary.5',
+  },
+
+  _dark: {
+    background: 'gray.l5',
+    color: 'gray.l80',
+    borderColor: 'gray.l20',
+
+    _hover: {
+      background: 'gray.l20',
+    },
+  }
+})
+
 export const buttonTheme = defineStyleConfig({
   baseStyle,
-  variants: { baseIconButton, solid },
+  variants: { 
+    baseIconButton, 
+    solid,
+    customOutline,
+   },
 });

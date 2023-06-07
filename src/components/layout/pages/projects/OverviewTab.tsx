@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Page } from '@root/components/layout/Page'
+import { Page } from '@rootcomponents/layout/AppPage'
 import {
     VStack,
     Flex,

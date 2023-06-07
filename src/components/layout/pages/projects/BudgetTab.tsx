@@ -93,7 +93,7 @@ export const BudgetTab = () => {
               defaultValue: "precise",
               onChange: console.log,
             });
-            return <RadioCard key={key} {...radio} content={value} />;
+            return <RadioCard key={key} {...radio} heading={value.heading} _key={key} content={value.content} />;
           })}
         </Stack>
 

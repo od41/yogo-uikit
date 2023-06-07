@@ -4,6 +4,32 @@ import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(inputAnatomy.keys)
 
+  const customSolid = definePartsStyle({
+    field: {
+      color: 'gray.80',
+      background: 'white',
+      pl: 3,
+      py: 4,
+      rounded: 'md',
+      border: '1px solid',
+      borderColor: 'gray.5',
+
+      _placeholder: {
+        color: "gray.20"
+      },
+      
+      _dark: {
+        background: 'gray.l10',
+        color: 'gray.l80',
+        borderColor: 'gray.l20',
+
+        _placeholder: {
+          color: "gray.l40"
+        },
+      },
+    },
+  })
+
   const filled = definePartsStyle({
     field: {
       color: 'gray.80',
@@ -79,42 +105,38 @@ const { definePartsStyle, defineMultiStyleConfig } =
   })
 
 const baseStyle = definePartsStyle({
-  field: {
-    bg: 'gray.5',
-    color: 'red',
-    borderRadius: 'lg',
-    px: 2,
+  // field: {
+  //   bg: 'gray.5',
+  //   px: 2,
 
-    _placeholder: {
-      color: "gray.20"
-    },
+  //   _placeholder: {
+  //     color: "gray.20"
+  //   },
     
-    _dark: {
-      bg: 'gray.l5',
-    },
-  },
-  addon: {
-    bg: 'yellow',
-    borderRadius: 'lg',
-    color: 'gray.5',
-    px: 2,
+  //   _dark: {
+  //     bg: 'gray.l5',
+  //   },
+  // },
+  // addon: {
+  //   borderRadius: 'md',
+  //   color: 'gray.5',
+  //   px: 2,
 
-    _dark: {
-      bg: 'gray.l5',
-      color: 'white',
-    },
-  },
-  element: {
-    bg: 'yellow',
-    borderRadius: 'lg',
-    color: 'gray.5',
-    px: 2,
+  //   _dark: {
+  //     bg: 'gray.l5',
+  //     color: 'white',
+  //   },
+  // },
+  // element: {
+  //   borderRadius: 'md',
+  //   color: 'gray.5',
+  //   px: 2,
 
-    _dark: {
-      bg: 'gray.l5',
-      color: 'white',
-    },
-  },
+  //   _dark: {
+  //     bg: 'gray.l5',
+  //     color: 'white',
+  //   },
+  // },
 });
 
 export const inputTheme = defineMultiStyleConfig({
@@ -123,5 +145,6 @@ export const inputTheme = defineMultiStyleConfig({
   variants: { 
     filled,
     customOutline,
+    customSolid,
   },
 });

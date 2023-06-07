@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { Page } from '@root/components/layout/Page'
+import { Page } from '@rootcomponents/layout/AppPage'
 import {
   useColorModeValue,
   VStack,

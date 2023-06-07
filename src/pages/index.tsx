@@ -1,16 +1,12 @@
 import { Inter } from 'next/font/google'
 
-import { Page } from '@root/components/layout/Page'
+import { AppPage } from '@rootcomponents/layout/AppPage'
 import {
-  useColorModeValue,
   VStack,
   Select,
   Flex,
   SimpleGrid,
-  Heading,
   Text,
-  Button,
-  CardFooter,
   Card,
   CardHeader,
   CardBody,
@@ -100,7 +96,7 @@ export default function Home() {
 
   return (
     <>
-      <Page>
+      <AppPage>
         <VStack w="100%" spacing={6} alignItems="flex-start">
           <Select placeholder="Today" variant="unstyled" width="fit-content">
             <option value="option1">Option 1</option>
@@ -384,7 +380,7 @@ export default function Home() {
             </Card>
           </SimpleGrid>
         </VStack>
-      </Page>
+      </AppPage>
     </>
   );
 }

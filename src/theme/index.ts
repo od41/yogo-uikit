@@ -9,6 +9,7 @@ import { badgeTheme } from './badge'
 import { tabsTheme } from './tabs'
 import { menuTheme } from './menu'
 import { avatarTheme } from './avatar'
+import { linkTheme } from './link'
 
 // colors
 const colors = {
@@ -101,6 +102,7 @@ const components = {
   Menu: menuTheme,
   Table: tableTheme,
   Tabs: tabsTheme,
+  Link: linkTheme,
 };
 
 

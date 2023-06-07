@@ -1,15 +1,14 @@
 import React from 'react'
-import { Page } from '@root/components/layout/Page'
+import { AppPage } from '@rootcomponents/layout/AppPage'
 import {
-    useColorModeValue,
     VStack,
     Tabs, 
     TabList, 
     TabPanels, 
     Tab, 
     TabPanel,
-    TabIndicator,
   } from "@chakra-ui/react";
+
 import { OverviewTab } from '@root/components/layout/pages/projects/OverviewTab';
 import { TargetsTab } from '@root/components/layout/pages/projects/TargetsTab';
 import { BudgetTab } from '@root/components/layout/pages/projects/BudgetTab';
@@ -21,7 +20,7 @@ import { SettingsTab } from '@root/components/layout/pages/projects/SettingsTab'
 const ProjectDetails = () => {
   return (
     <>
-      <Page>
+      <AppPage>
         <VStack w="100%" spacing={6} alignItems="flex-start" >
           <Tabs w="100%" variant="base" colorScheme={"blackAlpha"} >
             <TabList overflowX="scroll" >
@@ -68,7 +67,7 @@ const ProjectDetails = () => {
             
           </Tabs>
         </VStack>
-      </Page>
+      </AppPage>
     </>
   );
 }

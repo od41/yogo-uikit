@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { Page } from '@root/components/layout/Page'
+import { AppPage } from '@rootcomponents/layout/AppPage'
 import {
   useColorModeValue,
   VStack,
@@ -100,7 +100,7 @@ export default function Campaigns() {
 
   return (
     <>
-      <Page>
+      <AppPage>
         <VStack w="100%" spacing={6}>
           <Select placeholder="Today" variant="unstyled">
             <option value="option1">Option 1</option>
@@ -335,7 +335,7 @@ export default function Campaigns() {
             </Card>
           </SimpleGrid>
         </VStack>
-      </Page>
+      </AppPage>
     </>
   );
 }

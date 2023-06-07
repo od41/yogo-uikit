@@ -1,18 +1,27 @@
-import React, { PropsWithChildren, FC, useContext } from "react";
-import { Box, Flex, Grid, GridItem, useBreakpointValue, VStack } from "@chakra-ui/react";
+import React from "react";
+import { useBreakpointValue } from "@chakra-ui/react";
 import Head from 'next/head'
 
-import { Navbar } from "@root/components/navigation/Navbar";
-import { Sidebar } from "@root/components/navigation/Sidebar";
-import { RightSidebar } from "@root/components/navigation/RightSidebar";
-import { MobileNavbar } from "@root/components/navigation/MobileNavbar";
+import { Container } from "@root/components/layout/Container";
 
-import { SidebarContext } from "@root/context/SidebarContext";
+import { LandingNavbar } from '@rootcomponents/navigation/LandingNavbar';
+import { MobileLandingNavbar } from '@rootcomponents/navigation/MobileLandingNavbar';
+import { LandingFooter } from '@rootcomponents/layout/LandingFooter';
 
 interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
+  title?: string;
+  description?: string;
+  isNavbar?: boolean;
+  isFooter?: boolean;
 }
 
-export const Page = ({children}: PageProps) => {
+export const Page = ({
+  title = "App Blocks V1",
+  description = "Shave off 100 hours with App Blocks",
+  isNavbar = true,
+  isFooter = true,
+  children,
+}: PageProps) => {
   const isMobile = useBreakpointValue(
     {
       base: true,
@@ -25,61 +34,24 @@ export const Page = ({children}: PageProps) => {
     }
   );
 
-  const [sidebarState] = useContext(SidebarContext)
-
-  const sidebarGridCssRules = () => {
-
-
-    return `${sidebarState.leftSidebar ? '210px' : ''} 1fr ${sidebarState.rightSidebar ? '280px' : ''}`
-  }
-
   return (
     <>
       <Head>
-        <title>App Blocks V1</title>
-        <meta
-          name="description"
-          content="Shave off 100 hours with App Blocks"
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {isNavbar && <>
+      
+        {isMobile ? <MobileLandingNavbar /> : <LandingNavbar />}
+      
+      </>}
 
-      <Grid 
-        templateColumns={{ base: "1", md: sidebarGridCssRules() }}
-        _dark={{
-          bg: "black.100",
-          color: "gray.l80",
-          borderColor: "gray.80"
-        }}
-      >
-        {(!isMobile && sidebarState.leftSidebar) && (
-          <GridItem>
-            <Sidebar />
-          </GridItem>
-        )}
-
-        <GridItem
-          minHeight="100vh"
-          w="100%"
-          // overflow="visible"
-          // overflowX="hidden"
-        >
-          {isMobile ? <MobileNavbar /> : <Navbar />}
-          <Flex
-            p={"2rem"}
-            w="100%"
-          >
-            {children}
-          </Flex>
-        </GridItem>
-
-        {(!isMobile && sidebarState.rightSidebar) && (
-          <GridItem>
-            <RightSidebar />
-          </GridItem>
-        )}
-      </Grid>
+      <Container height="91vh" w={["100%"]} px={5} justifyContent="center">
+        {children}
+      </Container>
+      {isFooter && <LandingFooter />}
     </>
   );
-}
+};
