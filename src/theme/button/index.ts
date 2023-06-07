@@ -7,6 +7,7 @@ const baseStyle = defineStyle({
   fontWeight: "normal",
   transitionProperty: "common",
   transitionDuration: "normal",
+  alignItems: 'center',
   _focusVisible: {
     boxShadow: "outline",
   },
@@ -49,6 +50,7 @@ const solid = defineStyle({
   color: 'white',
   rounded: 'md',
   border: 'none',
+  alignItems: 'center',
 
   _hover: {
     background: 'brand.primary.80',

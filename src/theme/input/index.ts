@@ -104,6 +104,49 @@ const { definePartsStyle, defineMultiStyleConfig } =
     },
   })
 
+  const customOutline2 = definePartsStyle({
+    field: {
+      color: 'gray.80',
+      background: 'transparent',
+      pl: 2,
+      rounded: 'md',
+      border: '1px solid',
+      borderColor: 'gray.10',
+      h: 10,
+
+      _placeholder: {
+        color: "gray.20"
+      },
+      
+      _dark: {
+        background: 'transparent',
+        color: 'gray.l80',
+        borderColor: 'gray.l20',
+
+        _placeholder: {
+          color: "gray.l40"
+        },
+      },
+    },
+    addon: {
+      background: 'white',
+      borderRadius: 'lg',
+      color: 'gray.l20',
+      px: 2,
+      borderLeft: '1px solid',
+      borderTop: '1px solid',
+      borderBottom: '1px solid',
+      borderRight: '1px solid',
+      borderColor: 'gray.10',
+  
+      _dark: {
+        background: 'gray.l5',
+        color: 'gray.l40',
+        borderColor: 'gray.l20',
+      },
+    },
+  })
+
 const baseStyle = definePartsStyle({
   // field: {
   //   bg: 'gray.5',
@@ -146,5 +189,6 @@ export const inputTheme = defineMultiStyleConfig({
     filled,
     customOutline,
     customSolid,
+    customOutline2,
   },
 });

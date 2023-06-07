@@ -5,7 +5,7 @@ import { FiCheckCircle, FiCircle } from 'react-icons/fi'
 interface RadioCardProps {
   _key: any;
   heading: string;
-  content: string;
+  content?: string;
   icon?: any;
   variant?: string;
 }
@@ -15,6 +15,42 @@ export const RadioCard = ({_key, heading, content, icon, variant}: RadioCardProp
     const {state, getInputProps, getCheckboxProps } = useRadio(_key) //it's supposed to be getRadioProps, but it's throwing a not defined error
     const input = getInputProps()
     const checkbox = getCheckboxProps()
+
+    if(variant === "basic") {
+      return (
+        <>
+          <Card as="label" w="100%" variant="filled">
+            <CardHeader
+              {...checkbox}
+              py={3}
+              cursor="pointer"
+              borderWidth="1px"
+              borderRadius="md"
+              h="100%"
+              _checked={{
+                borderWidth: "2px",
+                borderColor: "brand.primary.alpha",
+                _dark: {
+                  borderColor: "brand.secondary.f",
+                },
+              }}
+              _focus={{
+                boxShadow: "outline",
+              }}
+            >
+              <input {...input} />
+                <Flex align="center" justify="center">
+                  <Box>
+                    <Text textStyle="h4">
+                      {heading}
+                    </Text>
+                  </Box>
+                </Flex>
+            </CardHeader>
+          </Card>
+        </>
+      );
+    }
 
     if(variant === "withIcon") {
       return (
@@ -55,7 +91,7 @@ export const RadioCard = ({_key, heading, content, icon, variant}: RadioCardProp
                     <Text textStyle="h4" mb={1}>
                       {heading}
                     </Text>
-                    <Text textStyle="mid">{content}</Text>
+                    <Text textStyle="mid">{content && content}</Text>
                   </Box>
                 </Flex>
               </Box>

@@ -18,7 +18,7 @@ import { RadioCard } from '@rootcomponents/cards/RadioCard'
 
 import { FiUser, FiBriefcase } from 'react-icons/fi'
 
-const TwoFactorAuthentication = () => {
+const Onboarding_1 = () => {
     const options = [
         {
           icon: FiUser,
@@ -103,4 +103,4 @@ const TwoFactorAuthentication = () => {
   );
 }
 
-export default TwoFactorAuthentication
+export default Onboarding_1
