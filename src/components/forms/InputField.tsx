@@ -30,7 +30,7 @@ export const InputField = ({
   return (
     <>
       <FormControl as="fieldset" isInvalid={isError}>
-        <FormLabel as="legend" fontWeight="semibold">{label}</FormLabel>
+        <FormLabel as="legend" fontWeight="semibold" fontSize="14px">{label}</FormLabel>
         <Input type={type} variant={variant} placeholder={placeholder} />
         {!isError ? (
           <>

@@ -52,10 +52,10 @@ const Error404 = () => {
           <VStack spacing={6} align={["start", "center"]} w="100%">
             <VStack spacing={3} w="100%">
               <Text as="h1" textStyle="h2">
-                404 Error
+                404 Not Found
               </Text>
               <Text textStyle="mid" align="center">
-                That page appears to be missing
+                Sorry, we can't find that page.
               </Text>
             </VStack>
 
