@@ -16,54 +16,12 @@ export const sidebarMenu = [
                 icon: null,
                 link: "/projects",
             },
-            {
-                name: "Campaigns",
-                icon: null,
-                link: "/campaigns",
-            },
-            {
-                name: "Documents",
-                icon: null,
-                link: "/documents",
-            },
-            {
-                name: "Followers",
-                icon: null,
-                link: "/followers",
-            }
         ]
     },
     {
         name: "Account",
         icon: StarIcon,
-        link: "/account",
-        submenu: [
-            {
-                name: "Overview",
-                icon: null,
-                link: "/overview",
-            },
-            {
-                name: "Projects",
-                icon: null,
-                link: "/projects",
-            },
-            {
-                name: "Campaigns",
-                icon: null,
-                link: "/campaigns",
-            },
-            {
-                name: "Documents",
-                icon: null,
-                link: "/documents",
-            },
-            {
-                name: "Followers",
-                icon: null,
-                link: "/followers",
-            }
-        ]
+        link: "/projects",
     },
     {
         name: "Corporate",

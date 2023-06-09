@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { Page } from '@rootcomponents/layout/AppPage'
+import { AppPage } from '@root/components/layout/AppPage'
 import {
   useColorModeValue,
   VStack,
@@ -79,7 +79,7 @@ export default function Home() {
 
   return (
     <>
-      <Page>
+      <AppPage>
         <VStack w="100%" spacing={6} alignItems="flex-start">
           <Text textStyle="h5" _dark={{ color: "black.100" }}>
             My Projects
@@ -172,7 +172,7 @@ export default function Home() {
             ))}
           </SimpleGrid>
         </VStack>
-      </Page>
+      </AppPage>
     </>
   );
 }

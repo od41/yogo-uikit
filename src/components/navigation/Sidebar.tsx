@@ -158,7 +158,9 @@ export const Sidebar = (props: any) => {
                           {menuItem.submenu.map((submenuItem, index) => (
                             <Box
                               key={`submenu-item-${index}`}
-                              onClick={() => switchPage(submenuItem.link, router)}
+                              onClick={() =>
+                                switchPage(submenuItem.link, router)
+                              }
                               display="flex"
                               alignItems="center"
                               _hover={{
@@ -230,22 +232,40 @@ export const Sidebar = (props: any) => {
                         : ""
                     }
                   >
-                    <Flex alignItems="center" fontSize="14px">
+                    <Flex alignItems="center" fontSize="sm">
+                      {isPathActive(menuItem.link, true) && (
+                        <Box
+                          bg={useColorModeValue(
+                            "brand.primary.alpha",
+                            "brand.secondary.beta"
+                          )}
+                          width={1}
+                          height="4"
+                          rounded="full"
+                          position="absolute"
+                          left={0}
+                        />
+                      )}
                       <Icon
                         as={menuItem.icon}
-                        mr={6}
-                        w={6}
-                        h={6}
+                        mx={2}
+                        boxSize={4}
                         color={
                           isPathActive(
                             menuItem.link,
                             menuItem.submenu != undefined
                           )
-                            ? "iconGray.200"
-                            : "iconGray.100"
+                            ? useColorModeValue(
+                                "brand.primary.alpha",
+                                "white.100"
+                              )
+                            : useColorModeValue(
+                                "brand.primary.alpha",
+                                "white.100"
+                              )
                         }
                       />
-                      {menuItem.name}
+                      <Text textStyle="base">{menuItem.name}</Text>
                     </Flex>
                   </AccordionItem>
                 )}
