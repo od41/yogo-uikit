@@ -41,6 +41,9 @@ export const textStyles = {
     fontWeight: "semibold",
     lineHeight: "110%",
     letterSpacing: "-1%",
+    _dark: {
+      color: 'gray.l80',
+    }
   },
   mid: {
     fontSize: "14px",

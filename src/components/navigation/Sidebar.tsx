@@ -171,7 +171,7 @@ export const Sidebar = (props: any) => {
                                 cursor: "pointer",
                                 bgColor: "gray.5",
                                 _dark: {
-                                  bgColor: "gray.l80",
+                                  bgColor: "gray.l5",
                                 },
                               }}
                               w="100%"

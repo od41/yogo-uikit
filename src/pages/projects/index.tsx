@@ -81,7 +81,7 @@ export default function Home() {
     <>
       <AppPage>
         <VStack w="100%" spacing={6} alignItems="flex-start">
-          <Text textStyle="h5" _dark={{ color: "black.100" }}>
+          <Text textStyle="h5">
             My Projects
           </Text>
 

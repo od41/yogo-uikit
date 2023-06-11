@@ -127,11 +127,11 @@ export function Navbar({ title, username }: NavbarProps) {
               onClick={toggleColorMode}
             />
 
-            <IconButton
+            {/* <IconButton
               aria-label="Show history"
               icon={<HistoryIcon />}
               variant="baseIconButton"
-            />
+            /> */}
 
             <IconButton
               aria-label="Show notifications"

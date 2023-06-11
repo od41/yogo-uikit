@@ -32,7 +32,7 @@ export const MobileSidebar = () => {
 
   return (
     <Flex
-      minH="100vh"
+      h="100vh"
       flexDir="column"
       top={0}
       left={0}

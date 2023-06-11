@@ -1,10 +1,10 @@
-import { StarIcon, UserProfileIcon, PieChartIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@root/components/base/Icons"
+import { UserProfileIcon, PieChartIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@root/components/base/Icons"
 
 export const sidebarMenu = [
     {
         name: "Dashboards",
         icon: PieChartIcon,
-        link: "/zzzz",
+        link: "",
         submenu: [
             {
                 name: "Overview",
@@ -12,21 +12,21 @@ export const sidebarMenu = [
                 link: "/overview",
             },
             {
-                name: "Projects",
+                name: "Reports",
                 icon: null,
-                link: "/projects",
+                link: "/reports",
             },
         ]
     },
     {
         name: "Projects",
         icon: ProjectsIcon,
-        link: "/user-profile",
+        link: "#",
         submenu: [
             {
-                name: "Campaigns",
+                name: "Overview",
                 icon: null,
-                link: "/campaigns",
+                link: "/projects",
             },
             {
                 name: "Documents",
