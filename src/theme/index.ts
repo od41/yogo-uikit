@@ -10,6 +10,7 @@ import { tabsTheme } from './tabs'
 import { menuTheme } from './menu'
 import { avatarTheme } from './avatar'
 import { linkTheme } from './link'
+import { accordionTheme } from "./accordion";
 
 // colors
 const colors = {
@@ -93,22 +94,23 @@ const config: ThemeConfig = {
 }
 
 const components = {
+  Accordion: accordionTheme,
   Avatar: avatarTheme,
   Badge: badgeTheme,
   Breadcrumb: breadcrumbTheme,
   Button: buttonTheme,
   Card: cardTheme,
   Input: inputTheme,
+  Link: linkTheme,
   Menu: menuTheme,
   Table: tableTheme,
   Tabs: tabsTheme,
-  Link: linkTheme,
 };
 
 
 export const theme = extendTheme({
-    config,
-    colors,
-    textStyles,
-    components,
-})
+  colors,
+  config,
+  components,
+  textStyles,
+});

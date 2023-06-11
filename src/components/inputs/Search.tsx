@@ -17,12 +17,13 @@ export const Search = ({placeholder, variant="filled", ...rest}: InputProps) => 
   return (
     <>
       <InputGroup variant={variant}>
-        <InputLeftAddon children={<SearchIcon/>} />
-        <Input 
-          placeholder={placeholder ? placeholder : "Search"} 
-          {...rest}
-        />
-        <InputRightAddon children={<ShortcutIcon />} />
+        <InputLeftAddon>
+          <SearchIcon />
+        </InputLeftAddon>
+        <Input placeholder={placeholder ? placeholder : "Search"} {...rest} />
+        <InputRightAddon>
+          <ShortcutIcon />
+        </InputRightAddon>
       </InputGroup>
     </>
   );

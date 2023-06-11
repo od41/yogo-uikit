@@ -15,8 +15,8 @@ interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const AppPage = ({
-  title = "App Blocks V1",
-  description = "Shave off 100 hours with App Blocks",
+  title = "Yogo UI Kit by AppBlocks",
+  description = "Shave off 100 hours with an AppBlocks UI Kit",
   children,
 }: PageProps) => {
   const isMobile = useBreakpointValue(
