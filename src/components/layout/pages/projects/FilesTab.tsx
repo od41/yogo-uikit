@@ -57,7 +57,7 @@ export const FilesTab = () => {
         ),
       }),
     ],
-    []
+    [columnHelper]
   );
 
   const data = React.useMemo<any[]>(() => [

@@ -1,9 +1,9 @@
-import { StarIcon, UserProfileIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@root/components/base/Icons"
+import { StarIcon, UserProfileIcon, PieChartIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@root/components/base/Icons"
 
 export const sidebarMenu = [
     {
         name: "Dashboards",
-        icon: StarIcon,
+        icon: PieChartIcon,
         link: "/zzzz",
         submenu: [
             {

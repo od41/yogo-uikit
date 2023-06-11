@@ -4,7 +4,6 @@ import {
   VStack, 
   Flex,
   Avatar,
-  Text,
   Icon,
 } from '@chakra-ui/react'
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
@@ -40,7 +39,7 @@ export const UsersTab = () => {
         ),
       }),
     ],
-    []
+    [columnHelper]
   );
 
   const data = React.useMemo<any[]>(() => [

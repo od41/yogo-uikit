@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Page } from '@rootcomponents/layout/AppPage'
 import {
     VStack,
     Flex,
@@ -89,7 +88,7 @@ export const OverviewTab = () => {
         cell: (info) => <span>{info.renderValue()}</span>,
       }),
     ],
-    []
+    [columnHelper]
   );
 
   const data = React.useMemo<any[]>(() => [

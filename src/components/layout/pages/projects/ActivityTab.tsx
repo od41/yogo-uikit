@@ -63,7 +63,7 @@ export const ActivityTab = () => {
         ),
       }),
     ],
-    []
+    [columnHelper]
   );
 
   const data = React.useMemo<any[]>(() => [
