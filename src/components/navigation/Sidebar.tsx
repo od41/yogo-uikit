@@ -10,23 +10,23 @@ import {
   Flex,
   Box,
   Avatar,
-  IconButton,
   Text,
   VStack,
-  Link,
   Icon,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  useColorMode,
 } from "@chakra-ui/react";
 
 
 import { sidebarMenu } from "@root/utils/constants";
-import { LogoIcon } from '@root/components/base/Icons';
+import { LogoIcon, DarkModeLogoIcon } from '@root/components/base/Icons';
 
 export const Sidebar = (props: any) => {
   const router = useRouter();
+  const { colorMode } = useColorMode()
 
   const isPathActive = (path: string, isParent: boolean) => {
     if (isParent) return router.asPath.includes(path);
@@ -61,14 +61,15 @@ export const Sidebar = (props: any) => {
         >
           <Flex alignItems="center">
             <Avatar
-              name="John Wick"
+              name="Hannah Waddingham"
+              src="https://plus.unsplash.com/premium_photo-1663054688278-ebf09d654d33?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
               bgColor="brand.primary.kappa"
               color="black.100"
               size="sm"
               mr={2}
             />
             <Box>
-              <Text textStyle="base">John Wick</Text>
+              <Text textStyle="base">Hannah Dubois</Text>
             </Box>
           </Flex>
         </Flex>
@@ -286,8 +287,8 @@ export const Sidebar = (props: any) => {
           </Accordion>
         </VStack>
       </Box>
-      <Box w="100%" textAlign="center">
-        <LogoIcon boxSize={24} color="brand.secondary.gamma" />
+      <Box w="100%" textAlign="center" mb={5}>
+        {colorMode == 'dark' ? <DarkModeLogoIcon w={32} /> : <LogoIcon w={32} />}
       </Box>
     </Flex>
   );

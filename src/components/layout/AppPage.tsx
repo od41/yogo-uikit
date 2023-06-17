@@ -43,23 +43,41 @@ export const AppPage = ({
     <>
       <Head>
         <title>{title}</title>
-        <meta
-          name="description"
-          content={description}
-        />
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <Grid 
+      <Grid
         templateColumns={{ base: "1", md: sidebarGridCssRules() }}
         _dark={{
           bg: "black.100",
           color: "gray.l80",
-          borderColor: "gray.80"
+          borderColor: "gray.80",
         }}
       >
-        {(!isMobile && sidebarState.leftSidebar) && (
+        {!isMobile && sidebarState.leftSidebar && (
           <GridItem>
             <Sidebar />
           </GridItem>
@@ -72,15 +90,12 @@ export const AppPage = ({
           // overflowX="hidden"
         >
           {isMobile ? <MobileNavbar /> : <Navbar />}
-          <Flex
-            p={"2rem"}
-            w="100%"
-          >
+          <Flex p={"2rem"} w="100%">
             {children}
           </Flex>
         </GridItem>
 
-        {(!isMobile && sidebarState.rightSidebar) && (
+        {!isMobile && sidebarState.rightSidebar && (
           <GridItem>
             <RightSidebar />
           </GridItem>

@@ -37,7 +37,8 @@ export const ProjectCard = ({
     collaborators
 }: ProjectCardProps) => {
     const calaculateProgress = () => {
-        return (completedTasks / totalTasks) * 100;
+      const result = Math.trunc((completedTasks / totalTasks) * 100)
+      return result;
     }
   return (
     <Card variant="filled" bg="#F7F9FB" w="100%">
