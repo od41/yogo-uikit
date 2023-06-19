@@ -12,7 +12,7 @@ export const Container = (props: FlexProps) => (
       color: 'white',
     }}
     transition="all 0.15s ease-out"
-    px={[6, 0]}i
+    px={[6, 0]}
     {...props}
   />
 )

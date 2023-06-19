@@ -1,10 +1,12 @@
-import React from 'react'
-import { HStack, Box } from '@chakra-ui/react';
+import React from "react";
+import { HStack, Box } from "@chakra-ui/react";
 
 interface PasswordStrengthIndicatorProps {
-    password: string;
+  password: string;
 }
-export const PasswordStrengthIndicator = ({password}: PasswordStrengthIndicatorProps) => {
+export const PasswordStrengthIndicator = ({
+  password,
+}: PasswordStrengthIndicatorProps) => {
   const initPwdChecker = () => {
     let pwdCheck = 0;
     let validateRegex = ["[A-Z]", "[a-z]", "[0-9]", "\\W"];
@@ -42,34 +44,35 @@ export const PasswordStrengthIndicator = ({password}: PasswordStrengthIndicatorP
     <>
       <HStack spacing={2} mb={2}>
         {[0, 1, 2, 3].map((i, key) => {
-            if (initPwdChecker()!.strength > i) {
-          return (
-            <Box 
-                key={`key-${key}`} 
-                h={1} 
-                w="100%" 
-                rounded="md" 
-                bg="brand.primary.alpha" 
+          if (initPwdChecker()!.strength > i) {
+            return (
+              <Box
+                key={`key-${key}`}
+                h={1}
+                w="100%"
+                rounded="md"
+                bg="brand.primary.alpha"
                 _dark={{
-                    bg: "brand.secondary.g"
+                  bg: "brand.secondary.g",
                 }}
-            />
-          );} else {
-                return (
-                  <Box
-                    key={`key-${key}`}
-                    h={1}
-                    w="100%"
-                    rounded="md"
-                    bg="gray.10"
-                    _dark={{
-                      bg: "gray.l10",
-                    }}
-                  />
-                );
+              />
+            );
+          } else {
+            return (
+              <Box
+                key={`key-${key}`}
+                h={1}
+                w="100%"
+                rounded="md"
+                bg="gray.10"
+                _dark={{
+                  bg: "gray.l10",
+                }}
+              />
+            );
           }
         })}
       </HStack>
     </>
   );
-}
+};
