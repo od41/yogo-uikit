@@ -11,6 +11,7 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  useColorMode,
 } from "@chakra-ui/react";
 
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -18,10 +19,12 @@ import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { switchPage } from "@root/utils/scripts";
 import { sidebarMenu } from "@root/utils/constants";
 
-import { LogoIcon } from '@root/components/base/Icons';
+import { LogoIcon, DarkModeLogoIcon } from '@root/components/base/Icons';
 
 export const MobileSidebar = () => {
-    const router = useRouter();
+  const router = useRouter();
+  const { colorMode } = useColorMode()
+
 
   const isPathActive = (path: string, isParent: boolean) => {
     if(isParent)
@@ -285,8 +288,8 @@ export const MobileSidebar = () => {
           </Accordion>
         </VStack>
       </Box>
-      <Box w="100%" textAlign="center">
-        <LogoIcon boxSize={24} color="brand.secondary.gamma" />
+      <Box w="100%" textAlign="center"  mb={8}>
+        {colorMode == 'dark' ? <DarkModeLogoIcon w={32} /> : <LogoIcon w={32} />}
       </Box>
     </Flex>
   );

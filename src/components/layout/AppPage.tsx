@@ -87,7 +87,7 @@ export const AppPage = ({
           minHeight="100vh"
           w="100%"
           // overflow="visible"
-          // overflowX="hidden"
+          overflowX="hidden"
         >
           {isMobile ? <MobileNavbar /> : <Navbar />}
           <Flex p={"2rem"} w="100%">

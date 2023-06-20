@@ -19,17 +19,6 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Heading,
-  VStack,
-  List,
-  ListItem,
-  Avatar,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  Button,
   useColorMode,
   useColorModeValue,
   Portal,
@@ -37,8 +26,6 @@ import {
 } from "@chakra-ui/react";
 
 import { Search } from "@root/components/inputs/Search";
-
-import { FiMenu, FiHexagon, FiPlus, FiChevronDown } from "react-icons/fi";
 
 import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@root/components/base/Icons";
 
@@ -55,12 +42,6 @@ export interface NavbarProps {
 export function Navbar({ title, username }: NavbarProps) {
   const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode()
-
-  const {
-    isOpen: isOpenNav,
-    onOpen: onOpenNav,
-    onClose: onCloseNav,
-  } = useDisclosure();
 
   const {
     isOpen: isOpenRightSidebar,
@@ -184,7 +165,7 @@ export function Navbar({ title, username }: NavbarProps) {
         </Flex>
       </Flex>
       <Portal>
-        {/* Right sidebar - currently notification & activity */}
+        
         <Drawer
           isOpen={isOpenRightSidebar}
           placement='right'

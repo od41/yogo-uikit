@@ -1,4 +1,6 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import {mode} from "@chakra-ui/theme-tools";
+
 import { inputTheme } from './input'
 import { breadcrumbTheme } from './breadcrumb'
 import { cardTheme } from './card'
@@ -113,4 +115,16 @@ export const theme = extendTheme({
   config,
   components,
   textStyles,
+  styles: {
+    global: (props: any) => ({
+      body: {
+        color: mode("white", "whiteAlpha.900")(props),
+        bg: mode("white", "black.100")(props),
+      },
+      "*::selection": {
+        color: mode("black.100", "black.100")(props),
+        bg: mode("brand.secondary.g", "brand.secondary.f")(props),
+      },
+    }),
+  },
 });

@@ -48,7 +48,7 @@ export const Page = ({
       
       </>}
 
-      <Container minH="91vh" overflowY="auto" w={["100%"]} px={5} justifyContent="center">
+      <Container minH="91vh" overflowY="auto" overflowX="hidden" w={["100%"]} px={5} justifyContent="center">
         {children}
       </Container>
       {isFooter && <LandingFooter />}
