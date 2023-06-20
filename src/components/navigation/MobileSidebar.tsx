@@ -12,6 +12,7 @@ import {
   AccordionButton,
   AccordionPanel,
   useColorMode,
+  Link,
 } from "@chakra-ui/react";
 
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -165,9 +166,8 @@ export const MobileSidebar = () => {
                           {menuItem.submenu.map((submenuItem, index) => (
                             <Box
                               key={`submenu-item-${index}`}
-                              onClick={() =>
-                                switchPage(submenuItem.link, router)
-                              }
+                              as={Link}
+                              href={submenuItem.link}
                               display="flex"
                               alignItems="center"
                               _hover={{
@@ -226,7 +226,8 @@ export const MobileSidebar = () => {
                 ) : (
                   <AccordionItem w="100%" position="relative">
                     <AccordionButton
-                      onClick={() => switchPage(menuItem.link, router)}
+                      as={Link}
+                      href={menuItem.link}
                       fontWeight={
                         isPathActive(
                           menuItem.link,

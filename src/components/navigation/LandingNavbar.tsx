@@ -8,7 +8,7 @@ import {
   IconButton,
   useColorMode,
 } from "@chakra-ui/react";
-import { LogoIcon, ColorModeIcon } from '@/components/base/Icons';
+import { LogoIcon, ColorModeIcon, DarkModeLogoIcon } from '@/components/base/Icons';
 
 export const navbarLinks = [
   { name: "Product", href: "#" },
@@ -38,7 +38,7 @@ export function LandingNavbar(props: any) {
     >
       <Flex h={100} alignItems="center" width="auto" mr="89px">
         <Link href="/">
-          <LogoIcon boxSize={32} color="brand.secondary.gamma" />
+          {colorMode == 'dark' ? <DarkModeLogoIcon w={32} /> : <LogoIcon w={32} />}
         </Link>
       </Flex>
 

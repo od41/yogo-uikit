@@ -18,6 +18,7 @@ import {
   AccordionButton,
   AccordionPanel,
   useColorMode,
+  Link,
 } from "@chakra-ui/react";
 
 
@@ -166,6 +167,8 @@ export const Sidebar = (props: any) => {
                               onClick={() =>
                                 switchPage(submenuItem.link, router)
                               }
+                              as={Link}
+                              href={submenuItem.link}
                               display="flex"
                               alignItems="center"
                               _hover={{
@@ -224,7 +227,8 @@ export const Sidebar = (props: any) => {
                 ) : (
                   <AccordionItem w="100%" position="relative">
                     <AccordionButton
-                      onClick={() => switchPage(menuItem.link, router)}
+                      as={Link}
+                      href={menuItem.link}
                       fontWeight={
                         isPathActive(
                           menuItem.link,
