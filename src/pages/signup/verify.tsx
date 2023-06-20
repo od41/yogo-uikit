@@ -8,14 +8,12 @@ import {
   useColorModeValue,
   Text,
   Button,
-  Input,
   PinInput, 
   PinInputField,
   HStack,
-  Flex,
 } from "@chakra-ui/react";
 
-import { Page } from "@root/components/layout/Page";
+import { Page } from "@/components/layout/Page";
 
 const TwoStepVerification = () => {
     const [phoneNumber, setPhoneNumber] = useState("080123456789")

@@ -13,11 +13,11 @@ import {
   HStack,
 } from "@chakra-ui/react";
 
-import { Page } from "@rootcomponents/layout/Page";
+import { Page } from "@/components/layout/Page";
 
-import { RadioCard } from "@rootcomponents/cards/RadioCard";
-import { RadioField } from "@rootcomponents/forms/RadioField";
-import { InputField } from "@rootcomponents/forms/InputField";
+import { RadioCard } from "@/components/cards/RadioCard";
+import { RadioField } from "@/components/forms/RadioField";
+import { InputField } from "@/components/forms/InputField";
 
 import { FiUser, FiBriefcase, FiChevronRight, FiChevronLeft } from "react-icons/fi";
 

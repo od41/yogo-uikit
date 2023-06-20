@@ -11,7 +11,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 
-import { Page } from "@rootcomponents/layout/Page";
+import { Page } from "@/components/layout/Page";
 
 const ForgotPassword = () => {
   return (

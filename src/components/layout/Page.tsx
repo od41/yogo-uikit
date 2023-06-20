@@ -2,11 +2,11 @@ import React from "react";
 import { useBreakpointValue } from "@chakra-ui/react";
 import Head from 'next/head'
 
-import { Container } from "@root/components/layout/Container";
+import { Container } from "@/components/layout/Container";
 
-import { LandingNavbar } from '@rootcomponents/navigation/LandingNavbar';
-import { MobileLandingNavbar } from '@rootcomponents/navigation/MobileLandingNavbar';
-import { LandingFooter } from '@rootcomponents/layout/LandingFooter';
+import { LandingNavbar } from '@/components/navigation/LandingNavbar';
+import { MobileLandingNavbar } from '@/components/navigation/MobileLandingNavbar';
+import { LandingFooter } from '@/components/layout/LandingFooter';
 
 interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;

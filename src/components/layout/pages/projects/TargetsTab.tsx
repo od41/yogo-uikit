@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { VStack, SimpleGrid, Flex, Text } from "@chakra-ui/react";
-import { ProjectCard2, ProjectCardProps } from '@root/components/cards/ProjectCard2';
-import { TargetTopCard } from '@rootcomponents/cards/TargetTopCard';
+import { ProjectCard2, ProjectCardProps } from '@/components/cards/ProjectCard2';
+import { TargetTopCard } from '@/components/cards/TargetTopCard';
 
 export const TargetsTab = () => {
   const projectsList: ProjectCardProps[] = [

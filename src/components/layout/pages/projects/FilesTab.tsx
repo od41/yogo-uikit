@@ -10,9 +10,9 @@ import {
 } from '@chakra-ui/react'
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
-import { FullTable } from '@rootcomponents/tables/FullTable';
+import { FullTable } from '@/components/tables/FullTable';
 import { FiCalendar } from 'react-icons/fi';
-import { getFileIcon } from '@root/utils/scripts';
+import { getFileIcon } from '@/utils/scripts';
 
 export const FilesTab = () => {
   const columnHelper = createColumnHelper<any>();

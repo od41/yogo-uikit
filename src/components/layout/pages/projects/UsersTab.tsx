@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
-import { FullTable } from '@rootcomponents/tables/FullTable';
+import { FullTable } from '@/components/tables/FullTable';
 import { FiCalendar } from 'react-icons/fi';
 
 export const UsersTab = () => {

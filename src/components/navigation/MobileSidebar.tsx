@@ -16,10 +16,10 @@ import {
 
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-import { switchPage } from "@root/utils/scripts";
-import { sidebarMenu } from "@root/utils/constants";
+import { switchPage } from "@/utils/scripts";
+import { sidebarMenu } from "@/utils/constants";
 
-import { LogoIcon, DarkModeLogoIcon } from '@root/components/base/Icons';
+import { LogoIcon, DarkModeLogoIcon } from '@/components/base/Icons';
 
 export const MobileSidebar = () => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { AppPage } from '@rootcomponents/layout/AppPage'
+import { AppPage } from '@/components/layout/AppPage'
 import {
   VStack,
   Select,

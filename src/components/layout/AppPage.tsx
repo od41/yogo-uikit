@@ -2,12 +2,12 @@ import React, { PropsWithChildren, FC, useContext } from "react";
 import { Box, Flex, Grid, GridItem, useBreakpointValue, VStack } from "@chakra-ui/react";
 import Head from 'next/head'
 
-import { Navbar } from "@root/components/navigation/Navbar";
-import { Sidebar } from "@root/components/navigation/Sidebar";
-import { RightSidebar } from "@root/components/navigation/RightSidebar";
-import { MobileNavbar } from "@root/components/navigation/MobileNavbar";
+import { Navbar } from "@/components/navigation/Navbar";
+import { Sidebar } from "@/components/navigation/Sidebar";
+import { RightSidebar } from "@/components/navigation/RightSidebar";
+import { MobileNavbar } from "@/components/navigation/MobileNavbar";
 
-import { SidebarContext } from "@root/context/SidebarContext";
+import { SidebarContext } from "@/context/SidebarContext";
 
 interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;

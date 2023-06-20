@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppPage } from '@rootcomponents/layout/AppPage'
+import { AppPage } from '@/components/layout/AppPage'
 import {
     VStack,
     Tabs, 
@@ -9,13 +9,13 @@ import {
     TabPanel,
   } from "@chakra-ui/react";
 
-import { OverviewTab } from '@root/components/layout/pages/projects/OverviewTab';
-import { TargetsTab } from '@root/components/layout/pages/projects/TargetsTab';
-import { BudgetTab } from '@root/components/layout/pages/projects/BudgetTab';
-import { UsersTab } from '@root/components/layout/pages/projects/UsersTab';
-import { FilesTab } from '@root/components/layout/pages/projects/FilesTab';
-import { ActivityTab } from '@root/components/layout/pages/projects/ActivityTab';
-import { SettingsTab } from '@root/components/layout/pages/projects/SettingsTab';
+import { OverviewTab } from '@/components/layout/pages/projects/OverviewTab';
+import { TargetsTab } from '@/components/layout/pages/projects/TargetsTab';
+import { BudgetTab } from '@/components/layout/pages/projects/BudgetTab';
+import { UsersTab } from '@/components/layout/pages/projects/UsersTab';
+import { FilesTab } from '@/components/layout/pages/projects/FilesTab';
+import { ActivityTab } from '@/components/layout/pages/projects/ActivityTab';
+import { SettingsTab } from '@/components/layout/pages/projects/SettingsTab';
 
 const ProjectDetails = () => {
   return (

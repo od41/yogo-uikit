@@ -1,29 +1,17 @@
 import React from "react";
 
-import { useRouter } from "next/router";
-
-import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
-
 import {
   Flex,
-  Box,
-  Avatar,
-  IconButton,
   Text,
   VStack,
-  Icon,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { BugIcon, SignalIcon, UserIcon } from "@rootcomponents/base/Icons";
+import { BugIcon, SignalIcon, UserIcon } from "@/components/base/Icons";
 
-import { NotificationsList } from "@rootcomponents/lists/NotificationsList";
-import { ActivityList } from "@rootcomponents/lists/ActivityList";
-import { ContactList } from "@rootcomponents/lists/ContactList";
+import { NotificationsList } from "@/components/lists/NotificationsList";
+import { ActivityList } from "@/components/lists/ActivityList";
+import { ContactList } from "@/components/lists/ContactList";
 
 export const notifications = [
   {

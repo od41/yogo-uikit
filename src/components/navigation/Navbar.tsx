@@ -25,14 +25,14 @@ import {
   
 } from "@chakra-ui/react";
 
-import { Search } from "@root/components/inputs/Search";
+import { Search } from "@/components/inputs/Search";
 
-import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@root/components/base/Icons";
+import { SidebarIcon, HistoryIcon, BellIcon, ColorModeIcon, StarIcon } from "@/components/base/Icons";
 
 import { useRouter } from "next/router";
 
-import {RightSidebar} from '@root/components/navigation/RightSidebar'
-import { SidebarContext } from "@root/context/SidebarContext";
+import {RightSidebar} from '@/components/navigation/RightSidebar'
+import { SidebarContext } from "@/context/SidebarContext";
 
 export interface NavbarProps {
   title?: string;

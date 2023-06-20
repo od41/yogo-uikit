@@ -18,14 +18,14 @@ import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 import { useDropzone } from "react-dropzone";
 
-import { ActivityList } from "@rootcomponents/lists/ActivityList";
-import { FilesList } from "@rootcomponents/lists/FilesList";
-import { MiniTable } from '@rootcomponents/tables/MiniTable';
+import { ActivityList } from "@/components/lists/ActivityList";
+import { FilesList } from "@/components/lists/FilesList";
+import { MiniTable } from '@/components/tables/MiniTable';
 
 import { FiPocket } from "react-icons/fi";
 
-import { notifications } from '@rootcomponents/navigation/RightSidebar';
-import { FileUpload } from '@rootcomponents/forms/FileUpload';
+import { notifications } from '@/components/navigation/RightSidebar';
+import { FileUpload } from '@/components/forms/FileUpload';
 
 
 const latestFiles = [

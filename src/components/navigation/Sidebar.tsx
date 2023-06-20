@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-import { switchPage } from "@root/utils/scripts";
+import { switchPage } from "@/utils/scripts";
 
 import {
   Flex,
@@ -21,8 +21,8 @@ import {
 } from "@chakra-ui/react";
 
 
-import { sidebarMenu } from "@root/utils/constants";
-import { LogoIcon, DarkModeLogoIcon } from '@root/components/base/Icons';
+import { sidebarMenu } from "@/utils/constants";
+import { LogoIcon, DarkModeLogoIcon } from '@/components/base/Icons';
 
 export const Sidebar = (props: any) => {
   const router = useRouter();

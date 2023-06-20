@@ -27,10 +27,10 @@ import {
 
 import { FiMenu, FiPlus, FiClipboard } from "react-icons/fi";
 
-import { NavbarProps } from "@root/components/navigation/Navbar";
-import { MobileSidebar } from "@root/components/navigation/MobileSidebar";
+import { NavbarProps } from "@/components/navigation/Navbar";
+import { MobileSidebar } from "@/components/navigation/MobileSidebar";
 
-import { HistoryIcon, BellIcon, ColorModeIcon } from "@root/components/base/Icons";
+import { HistoryIcon, BellIcon, ColorModeIcon } from "@/components/base/Icons";
 
 export function MobileNavbar({  }: NavbarProps) {
   const { colorMode, toggleColorMode } = useColorMode()

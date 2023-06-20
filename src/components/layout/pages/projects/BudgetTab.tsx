@@ -21,8 +21,8 @@ import {
   useColorModeValue,
  } from '@chakra-ui/react'
 
-import { RadioCard } from '@rootcomponents/cards/RadioCard'
-import { Switch } from '@rootcomponents/forms/Switch'
+import { RadioCard } from '@/components/cards/RadioCard'
+import { Switch } from '@/components/forms/Switch'
 
 export const BudgetTab = () => {
   const options = [

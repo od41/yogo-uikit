@@ -10,9 +10,9 @@ import {
   Divider,
 } from "@chakra-ui/react";
 
-import { Page } from "@rootcomponents/layout/Page";
+import { Page } from "@/components/layout/Page";
 
-const backgroundImage = require("@root/assets/404.jpg");
+const backgroundImage = require("@/assets/404.jpg");
 
 const Error404 = () => {
   

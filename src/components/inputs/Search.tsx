@@ -6,7 +6,7 @@ import {
   InputProps as ChakraInputProps,
 } from "@chakra-ui/react";
 import React from "react";
-import { SearchIcon, ShortcutIcon } from "@rootcomponents/base/Icons";
+import { SearchIcon, ShortcutIcon } from "@/components/base/Icons";
 
 type InputProps = {
   placeholder?: string

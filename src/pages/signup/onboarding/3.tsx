@@ -8,23 +8,21 @@ import {
   useColorModeValue,
   Text,
   Button,
-  Stack,
-  useRadioGroup,
   HStack,
   Select,
   Textarea,
 } from "@chakra-ui/react";
 
-import { Page } from "@rootcomponents/layout/Page";
+import { Page } from "@/components/layout/Page";
 
-import { RadioField } from "@rootcomponents/forms/RadioField";
-import { InputField } from "@rootcomponents/forms/InputField";
+import { RadioField } from "@/components/forms/RadioField";
+import { InputField } from "@/components/forms/InputField";
 
 import {
   FiChevronRight,
   FiChevronLeft,
 } from "react-icons/fi";
-import { LineUpDownIcon } from "@rootcomponents/base/Icons";
+import { LineUpDownIcon } from "@/components/base/Icons";
 
 const Onboarding_3 = () => {
 

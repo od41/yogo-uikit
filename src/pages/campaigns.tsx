@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 
-import { AppPage } from '@rootcomponents/layout/AppPage'
+import { AppPage } from '@/components/layout/AppPage'
 import {
   useColorModeValue,
   VStack,
@@ -9,8 +9,6 @@ import {
   SimpleGrid,
   Heading,
   Text,
-  Button,
-  CardFooter,
   Card,
   CardHeader,
   CardBody,

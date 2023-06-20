@@ -1,6 +1,6 @@
 import { NextRouter } from "next/router";
 
-import { PDFIcon, JPGIcon, ZIPIcon, XLSIcon } from '@root/components/base/Icons';
+import { PDFIcon, JPGIcon, ZIPIcon, XLSIcon } from '@/components/base/Icons';
 
 export const switchPage = (link: string, router: NextRouter) => {
     router.push({ pathname: link }, undefined, {

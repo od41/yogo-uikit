@@ -12,9 +12,9 @@ import {
   useRadioGroup,
 } from "@chakra-ui/react";
 
-import { Page } from '@rootcomponents/layout/Page';
+import { Page } from '@/components/layout/Page';
 
-import { RadioCard } from '@rootcomponents/cards/RadioCard'
+import { RadioCard } from '@/components/cards/RadioCard'
 
 import { FiUser, FiBriefcase } from 'react-icons/fi'
 

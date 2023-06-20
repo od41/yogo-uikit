@@ -3,7 +3,6 @@ import NextLink from 'next/link'
 import {
   Card,
   CardBody,
-  CardHeader,
   Link,
   VStack,
   useColorModeValue,
@@ -13,14 +12,13 @@ import {
   Input,
   Box,
   Divider,
-  HStack,
   Flex,
   Checkbox,
 } from "@chakra-ui/react";
 
-import { GoogleLogoIcon, AppleLogoIcon } from "@rootcomponents/base/Icons";
-import { Page } from "@root/components/layout/Page";
-import { PasswordStrengthIndicator } from '@rootcomponents/forms/PasswordStrengthIndicator';
+import { GoogleLogoIcon, AppleLogoIcon } from "@/components/base/Icons";
+import { Page } from "@/components/layout/Page";
+import { PasswordStrengthIndicator } from '@/components/forms/PasswordStrengthIndicator';
 
 const Register = () => {
   const [password, setPassword] = useState("")

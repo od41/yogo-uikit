@@ -14,11 +14,11 @@ import {
   Divider,
 } from "@chakra-ui/react";
 
-import { Page } from "@root/components/layout/Page";
+import { Page } from "@/components/layout/Page";
 
-import { GoogleLogoIcon, AppleLogoIcon } from "@rootcomponents/base/Icons";
+import { GoogleLogoIcon, AppleLogoIcon } from "@/components/base/Icons";
 
-const backgroundImage = require("@root/assets/account_bg.jpg");
+const backgroundImage = require("@/assets/account_bg.jpg");
 
 const SignIn = () => {
   const handleLogin = async () => {

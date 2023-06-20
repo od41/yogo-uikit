@@ -1,10 +1,10 @@
-import '@root/styles/globals.css'
+import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
 import { ChakraProvider, useColorMode } from '@chakra-ui/react'
-import { theme } from '@root/theme'
+import { theme } from '@/theme'
 
-import { MyContextProvider } from '@root/context'
+import { MyContextProvider } from '@/context'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

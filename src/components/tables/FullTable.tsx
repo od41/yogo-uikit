@@ -42,7 +42,7 @@ import {
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import { FiFilter, FiList, FiSettings, FiPlus } from "react-icons/fi";
 
-import { Search } from "@rootcomponents/inputs/Search";
+import { Search } from "@/components/inputs/Search";
 
 declare module "@tanstack/table-core" {
   interface FilterFns {

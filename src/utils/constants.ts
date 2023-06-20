@@ -1,4 +1,4 @@
-import { UserProfileIcon, PieChartIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@root/components/base/Icons"
+import { UserProfileIcon, PieChartIcon, ChatIcon, NotebookIcon, ProjectsIcon } from "@/components/base/Icons"
 
 export const sidebarMenu = [
     {

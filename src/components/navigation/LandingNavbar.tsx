@@ -8,7 +8,7 @@ import {
   IconButton,
   useColorMode,
 } from "@chakra-ui/react";
-import { LogoIcon, ColorModeIcon } from '@root/components/base/Icons';
+import { LogoIcon, ColorModeIcon } from '@/components/base/Icons';
 
 export const navbarLinks = [
   { name: "Product", href: "#" },

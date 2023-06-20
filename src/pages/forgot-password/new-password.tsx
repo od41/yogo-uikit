@@ -14,9 +14,9 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-import { Page } from "@root/components/layout/Page";
+import { Page } from "@/components/layout/Page";
 
-import { PasswordStrengthIndicator } from '@rootcomponents/forms/PasswordStrengthIndicator';
+import { PasswordStrengthIndicator } from '@/components/forms/PasswordStrengthIndicator';
 
 const NewPassword = () => {
     const [password, setPassword] = useState("")

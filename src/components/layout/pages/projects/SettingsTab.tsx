@@ -22,11 +22,11 @@ import {
   useColorModeValue,
  } from '@chakra-ui/react'
  
-import { Switch } from '@rootcomponents/forms/Switch'
+import { Switch } from '@/components/forms/Switch'
 
-import { MyDatePickerDialog } from '@rootcomponents/inputs/MyDatePickerDialog';
+import { MyDatePickerDialog } from '@/components/inputs/MyDatePickerDialog';
 
-const appblocksIcon = require('@root/assets/appblocks-icon.png');
+const appblocksIcon = require('@/assets/appblocks-icon.png');
 
 console.log('appblocksIcon', String(appblocksIcon.default.src))
 

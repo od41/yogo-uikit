@@ -18,11 +18,11 @@ import {
 
 import { FiMenu } from "react-icons/fi";
 
-import { NavbarProps } from "@root/components/navigation/Navbar";
+import { NavbarProps } from "@/components/navigation/Navbar";
 
-import { ColorModeIcon } from "@root/components/base/Icons";
+import { ColorModeIcon } from "@/components/base/Icons";
 
-import { LogoIcon } from '@root/components/base/Icons';
+import { LogoIcon } from '@/components/base/Icons';
 
 import { navbarLinks } from "./LandingNavbar";
 

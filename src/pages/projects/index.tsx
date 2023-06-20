@@ -1,22 +1,17 @@
 import { Inter } from 'next/font/google'
 
-import { AppPage } from '@root/components/layout/AppPage'
+import { AppPage } from '@/components/layout/AppPage'
 import {
-  useColorModeValue,
   VStack,
-  Select,
   Flex,
   SimpleGrid,
-  Heading,
   Text,
-  Button,
-  CardFooter,
   Card,
   CardHeader,
   CardBody,
 } from "@chakra-ui/react";
 
-import { ProjectCard, ProjectCardProps } from '@root/components/cards/ProjectCard';
+import { ProjectCard, ProjectCardProps } from '@/components/cards/ProjectCard';
 
 export default function Home() {
   const projectsList: ProjectCardProps[] = [
