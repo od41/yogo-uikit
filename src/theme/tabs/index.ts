@@ -30,6 +30,8 @@ export const base = definePartsStyle((props) => {
     },
     tablist: {
       flex: 1,
+      overflowX: "auto",
+      "-webkit-overflow-scrolling": "touch",
     },
     tabpanel: {
       width: "100%",
