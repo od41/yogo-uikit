@@ -232,7 +232,7 @@ export default function Campaigns() {
 
           <SimpleGrid
             spacing={6}
-            templateColumns="repeat(auto-fit, minmax(320px, 1fr))"
+            templateColumns="repeat(auto-fit, minmax(280px, 1fr))"
             w="100%"
           >
             <Card variant="filled" bg="#F7F9FB">

@@ -182,7 +182,7 @@ export const OverviewTab = () => {
 
         <SimpleGrid
           spacing={6}
-          templateColumns="repeat(auto-fit, minmax(320px, 1fr))"
+          templateColumns="repeat(auto-fit, minmax(280px, 1fr))"
           w="100%"
         >
           <Card variant="filled">
@@ -212,7 +212,6 @@ export const OverviewTab = () => {
 
         <SimpleGrid
           spacing={6}
-          templateColumns="repeat(auto-fit, minmax(320px, 1fr))"
           w="100%"
         >
           <Card variant="filled">
