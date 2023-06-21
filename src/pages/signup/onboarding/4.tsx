@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NextLink from "next/link";
 import {
   Card,
@@ -10,7 +10,6 @@ import {
   Text,
   Button,
   Stack,
-  useRadioGroup,
   HStack,
   Select,
   Textarea,
@@ -21,17 +20,10 @@ import { Page } from "@/components/layout/Page";
 import { RadioField } from "@/components/forms/RadioField";
 import { InputField } from "@/components/forms/InputField";
 
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { FiChevronLeft } from "react-icons/fi";
 import { LineUpDownIcon } from "@/components/base/Icons";
 
 const Onboarding_4 = () => {
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name: "usage-rate",
-    defaultValue: "precise",
-    onChange: console.log,
-  });
-
-  const group = getRootProps();
 
   return (
     <>
@@ -65,7 +57,7 @@ const Onboarding_4 = () => {
               <VStack w="100%" spacing={5}>
                 <InputField
                   label="Name On Card"
-                  type="number"
+                  type="text"
                   variant="customOutline2"
                   isError={false}
                   errorMessage={"Field is compulsory"}
@@ -73,8 +65,9 @@ const Onboarding_4 = () => {
 
                 <InputField
                   label="Card Number"
-                  type="text"
+                  type="number"
                   variant="customOutline2"
+                  pattern="[0-9.]+"
                   isError={false}
                   errorMessage={"Field is compulsory"}
                 />
@@ -83,7 +76,6 @@ const Onboarding_4 = () => {
                   spacing={3}
                   direction={["column", "row"]}
                   w="100%"
-                  {...group}
                 >
                   <Box w="70%">
                     <RadioField
@@ -92,16 +84,25 @@ const Onboarding_4 = () => {
                       errorMessage="Field is compulsory"
                     >
                       <HStack w="100%" spacing={3}>
-                        <Select placeholder="Month" w="100%"  icon={<LineUpDownIcon />}>
-                          <option value="option1">Option 1</option>
-                          <option value="option2">Option 2</option>
-                          <option value="option3">Option 3</option>
+                        <Select placeholder="Day" w="100%"  icon={<LineUpDownIcon />}>
+                          <option value="option1">1</option>
+                          <option value="option2">2</option>
+                          <option value="option3">3</option>
                         </Select>
 
                         <Select placeholder="Month" w="100%" icon={<LineUpDownIcon />}>
-                          <option value="option1">Option 1</option>
-                          <option value="option2">Option 2</option>
-                          <option value="option3">Option 3</option>
+                          <option value="option1">Jan</option>
+                          <option value="option2">Feb</option>
+                          <option value="option3">Mar</option>
+                          <option value="option1">Apr</option>
+                          <option value="option2">May</option>
+                          <option value="option3">Jun</option>
+                          <option value="option1">Jul</option>
+                          <option value="option2">Aug</option>
+                          <option value="option3">Sep</option>
+                          <option value="option1">Oct</option>
+                          <option value="option2">Nov</option>
+                          <option value="option3">Dec</option>
                         </Select>
                       </HStack>
                     </RadioField>
@@ -111,6 +112,7 @@ const Onboarding_4 = () => {
                       label="CVV"
                       placeholder="CVV"
                       type="number"
+                      max={3}
                       variant="customOutline2"
                       isError={false}
                       errorMessage={"Field is compulsory"}
