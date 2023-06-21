@@ -277,9 +277,17 @@ export const Sidebar = (props: any) => {
                               menuItem.link,
                               menuItem.submenu != undefined
                             )
-                              ? "iconGray.200"
-                              : "iconGray.100"
+                              ? "brand.primary.alpha"
+                              : "gray.80"
                           }
+                          _dark={{
+                            color: isPathActive(
+                              menuItem.link,
+                              menuItem.submenu != undefined
+                            )
+                              ? "white.100"
+                              : "white.100",
+                          }}
                         />
                         <Text textStyle="base">{menuItem.name} </Text>
                       </Flex>
