@@ -164,9 +164,6 @@ export const Sidebar = (props: any) => {
                           {menuItem.submenu.map((submenuItem, index) => (
                             <Box
                               key={`submenu-item-${index}`}
-                              onClick={() =>
-                                switchPage(submenuItem.link, router)
-                              }
                               as={Link}
                               href={submenuItem.link}
                               display="flex"

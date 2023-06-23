@@ -16,6 +16,7 @@ export const base = definePartsStyle((props) => {
         borderBottom: '3px solid',
         borderBottomColor: "brand.primary.alpha",
         px: '1px',
+        mx: '15px',
         fontWeight: 'semibold',
       },
       _dark: {

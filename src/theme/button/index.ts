@@ -73,7 +73,6 @@ const customOutline = defineStyle({
   rounded: 'md',
   border: '1px solid',
   borderColor: 'gray.10',
-  fontSize: '13px',
   py: 2,
 
   _hover: {

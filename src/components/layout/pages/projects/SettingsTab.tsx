@@ -145,7 +145,7 @@ export const SettingsTab = () => {
         pt={5}
         pr={["0", "2rem"]}
       >
-        <Button variant="outline">Cancel</Button>
+        <Button variant="customOutline">Cancel</Button>
         <Button variant="solid">Save Changes</Button>
       </HStack>
     </>

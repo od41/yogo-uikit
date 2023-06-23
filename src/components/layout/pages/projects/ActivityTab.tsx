@@ -4,7 +4,6 @@ import {
   VStack, 
   Flex,
   Avatar,
-  Text,
   Icon,
   Box,
 } from '@chakra-ui/react'

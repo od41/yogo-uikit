@@ -7,7 +7,6 @@ import {
   CardHeader,
   Text,
   CardBody,
-  Progress,
   Box,
   useRadioGroup,
   HStack,
@@ -23,6 +22,7 @@ import {
 
 import { RadioCard } from '@/components/cards/RadioCard'
 import { Switch } from '@/components/forms/Switch'
+import { ProgressBar } from '@/components/data/Progress'
 
 export const BudgetTab = () => {
   const options = [
@@ -69,14 +69,9 @@ export const BudgetTab = () => {
             </CardHeader>
             <CardBody>
               <Box w="100%" h="50px" mt={2}>
-                <Progress
-                  value={90}
-                  w="100%"
+                <ProgressBar
+                  progress={90}
                   height={2}
-                  mb={2}
-                  rounded="full"
-                  bgColor="brand.secondary.kappa50"
-                  colorScheme="purple"
                 />
 
                 <Text textStyle="small">14 Targets are remaining</Text>
@@ -167,7 +162,7 @@ export const BudgetTab = () => {
         pt={5}
         pr={["0", "2rem"]}
       >
-        <Button variant="outline">Cancel</Button>
+        <Button variant="customOutline">Cancel</Button>
         <Button variant="solid" >Save Changes</Button>
       </HStack>
     </>

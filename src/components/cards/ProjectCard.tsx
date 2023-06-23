@@ -1,51 +1,52 @@
-import React from 'react'
+import React from "react";
 
 import {
-    Card,
-    CardHeader,
-    CardBody,
-    Heading,
-    Flex,
-    Text,
-    Box,
-    Icon,
-    Avatar,
-    VStack,
-    Progress
+  Card,
+  CardHeader,
+  CardBody,
+  Flex,
+  Text,
+  Box,
+  Icon,
+  Avatar,
+  VStack,
 } from "@chakra-ui/react";
 
 import { FiInbox } from "react-icons/fi";
 import { BsDot } from "react-icons/bs";
+import { ProgressBar } from "@/components/data/Progress";
 
 export type ProjectCardProps = {
-    title: string;
-    date: string;
-    totalTasks: number;
-    completedTasks: number;
-    status: string;
-    avatar: string;
-    collaborators: string[];
-}
+  title: string;
+  date: string;
+  totalTasks: number;
+  completedTasks: number;
+  status: string;
+  avatar: string;
+  collaborators: string[];
+};
 
 export const ProjectCard = ({
-    title,
-    date,
-    totalTasks,
-    completedTasks,
-    status,
-    avatar,
-    collaborators
+  title,
+  date,
+  totalTasks,
+  completedTasks,
+  status,
+  avatar,
+  collaborators,
 }: ProjectCardProps) => {
-    const calaculateProgress = () => {
-      const result = Math.trunc((completedTasks / totalTasks) * 100)
-      return result;
-    }
+  const calaculateProgress = () => {
+    const result = Math.trunc((completedTasks / totalTasks) * 100);
+    return result;
+  };
   return (
     <Card variant="filled" bg="#F7F9FB" w="100%">
       <CardHeader mb={3}>
         <Flex w="100%" justify="space-between">
           <Box>
-            <Text textStyle="h5" noOfLines={1}>{title}</Text>
+            <Text textStyle="h5" noOfLines={1}>
+              {title}
+            </Text>
             <Text textStyle="small">Due Date: {date}</Text>
           </Box>
           <Icon
@@ -68,14 +69,16 @@ export const ProjectCard = ({
               {status}
             </Flex>
           </Flex>
-          <Progress  value={calaculateProgress()} w="100%" height={1} rounded="full" bgColor="brand.secondary.kappa50" colorScheme="purple" />
+          <ProgressBar progress={calaculateProgress()} />
 
           <Flex alignItems="center" justify="space-between" w="100%">
             <Flex alignItems="center">
-                <Text as="span" textStyle="small" color="black.100" mr={1.5}>{completedTasks} / {totalTasks}</Text>
-                <Text textStyle="small">Total Tasks</Text>
+              <Text as="span" textStyle="small" color="black.100" mr={1.5}>
+                {completedTasks} / {totalTasks}
+              </Text>
+              <Text textStyle="small">Total Tasks</Text>
             </Flex>
-            <Flex alignItems="center" textStyle="small" color="black.100" >
+            <Flex alignItems="center" textStyle="small" color="black.100">
               <Icon as={BsDot} w={8} h={30} />
               {calaculateProgress()}%
             </Flex>
@@ -84,4 +87,4 @@ export const ProjectCard = ({
       </CardBody>
     </Card>
   );
-}
+};
