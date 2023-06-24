@@ -4,7 +4,6 @@ import {
   Flex,
   Text,
   VStack,
-  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { BugIcon, SignalIcon, UserIcon } from "@/components/base/Icons";
@@ -60,11 +59,14 @@ export const RightSidebar = (props: any) => {
       minH="100vh"
       flexDir="column"
       top={0}
-      left={0}
+      right={0}
       pt={7}
-      position="sticky"
+      // position="sticky"
       borderLeft="1px"
-      borderColor={useColorModeValue("gray.10", "gray.80")}
+      borderColor="gray.10"
+      _dark={{
+        borderColor: 'gray.80'
+      }}
     >
       <VStack
         px="24px"

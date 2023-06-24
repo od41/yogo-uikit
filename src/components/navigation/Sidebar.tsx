@@ -38,10 +38,10 @@ export const Sidebar = (props: any) => {
   return (
     <Flex
       minH="100vh"
+      // position="sticky"
       flexDir="column"
       top={0}
       left={0}
-      position="sticky"
       justify="space-between"
       borderRight="1px solid"
       borderColor="gray.10"

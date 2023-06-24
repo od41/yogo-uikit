@@ -8,6 +8,9 @@ import { RightSidebar } from "@/components/navigation/RightSidebar";
 import { MobileNavbar } from "@/components/navigation/MobileNavbar";
 
 import { SidebarContext } from "@/context/SidebarContext";
+import Layout from "./Layout";
+
+import { navigationTransition, pageTransition, pageTransitionReverse, slideInLeft, slideInRight } from "@/theme/animations";
 
 interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -79,7 +82,17 @@ export const AppPage = ({
       >
         {!isMobile && sidebarState.leftSidebar && (
           <GridItem>
-            <Sidebar />
+            <Layout
+              transition={slideInLeft}
+              duration={0.25}
+              ease="linear"
+              position="sticky"
+              top={0}
+              left={0}
+              zIndex="sticky"
+            >
+              <Sidebar />
+            </Layout>
           </GridItem>
         )}
 
@@ -87,17 +100,46 @@ export const AppPage = ({
           minHeight="100vh"
           w="100%"
           // overflow="visible"
-          overflowX="hidden"
+          overflowX={["hidden", "visible"]}
         >
-          {isMobile ? <MobileNavbar /> : <Navbar />}
-          <Flex p={"2rem"} w="100%">
-            {children}
-          </Flex>
+          {isMobile ? (
+            <MobileNavbar />
+          ) : (
+            <Layout
+              transition={pageTransitionReverse}
+              duration={0.45}
+              ease="easeOut"
+              position="sticky"
+              top={0}
+              left={0}
+              zIndex="sticky"
+            >
+              <Navbar />
+            </Layout>
+          )}
+          <Layout transition={pageTransition}>
+            <Flex 
+              p={"2rem"} 
+              w="100%"
+            >
+              {children}
+            </Flex>
+          </Layout>
         </GridItem>
 
         {!isMobile && sidebarState.rightSidebar && (
           <GridItem>
-            <RightSidebar />
+            <Layout
+              transition={slideInRight}
+              duration={0.25}
+              ease="linear"
+              position="sticky"
+              top={0}
+              left={0}
+              zIndex="sticky"
+            >
+              <RightSidebar />
+            </Layout>
           </GridItem>
         )}
       </Grid>

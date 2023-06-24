@@ -47,7 +47,7 @@ const colors = {
   },
   brand: {
     primary: {
-      alpha: "#1C1C1C",
+      alpha: "#95A4FC",
       80: "#313232",
       40: "#949597",
       20: "#C6C7C9",

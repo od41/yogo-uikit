@@ -4,9 +4,6 @@ import {
   Flex,
   HStack,
   IconButton,
-  CloseButton,
-  Text,
-  Box,
   Image as ChakraImage,
   Link as ChakraLink,
   Drawer,
@@ -20,7 +17,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   useColorMode,
-  useColorModeValue,
   Portal,
   
 } from "@chakra-ui/react";
@@ -55,17 +51,21 @@ export function Navbar({ title, username }: NavbarProps) {
   return (
     <>
       <Flex
+        position="sticky"
         zIndex="sticky"
         top={0}
         left={0}
-        bgColor={useColorModeValue("white.100", "black.100")}
+        bgColor="white.100"
         borderBottom="1px solid"
-        borderColor={useColorModeValue("gray.10", "gray.80")}
+        borderColor="gray.10"
         justifyContent="space-between"
         alignItems="center"
         px={6}
         py={4}
-        position="sticky"
+        _dark={{
+          bgColor: 'black.100',
+          borderColor: 'gray.80'
+        }}
       >
         <Flex flex="1" justifyContent="space-between" alignItems="center">
           <HStack width="auto" spacing={4}>

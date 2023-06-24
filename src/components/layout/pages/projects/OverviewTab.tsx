@@ -3,8 +3,6 @@ import React from 'react'
 import {
     VStack,
     Flex,
-    Box,
-    CardFooter,
     Card,
     CardHeader,
     CardBody,
